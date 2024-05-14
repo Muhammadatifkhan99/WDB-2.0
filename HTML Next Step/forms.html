@@ -26,6 +26,11 @@
         <input type="email" id="email" placeholder="email">
     </p>
     <p>
+        <label for="number">select a number
+            <input type="number" id="number" min="1" max="100" step="5">
+        </label>
+    </p>
+    <p>
         <label>Enter your email(without for attribute)
             <input type="email" id="username" placeholder="email">
         </label>
@@ -36,7 +41,35 @@
     <form action="https://www.google.com/search">
         <input type="text" name="q">
         <button>Submit</button>
+    </form>
+    <h2>More inputs</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree" checked>
+        <label for="agree">I agree to everything</label>
 
+        <p>
+            <label for="xs">XS:</label>
+            <input type="radio" name="size" id="xs" value="LOLOLO">
+            <label for="XL">XL:</label>
+            <input type="radio" name="size" id="XL">
+            <label for="LL">LL:</label>
+            <input type="radio" name="size" id="LL">
+        </p>
+        <p>
+        <label for="meal">Please select an Entree</label>
+        <select name="meal21" id="meal">
+            <option value="fish">Fish</option>
+            <option value="veg">Veg</option>
+            <option value="steak">Steak</option>
+        </select>
+    </p>
+    <p>
+        <label for="cheese">Amount of cheese</label>
+        <input type="range" id="cheese" min="1" max="9" name="cheesleve" step="2">
+    </p>
+    <label for="request">Any Special Requests</label>
+    <textarea name="request" id="request" rows="10" cols="10" placeholder="please enter your requests"></textarea>
+            <button>Submit</button>
     </form>
 </body>
 </html>
