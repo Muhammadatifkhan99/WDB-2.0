@@ -1,9 +1,13 @@
 h1 {
-    color: palegreen;
+    color: #000;
+    background-color: rgb(0,255,0);
 }
 
 h2{
     color: blue;
+    text-align: center;
+    text-decoration: #000 underline;
+    letter-spacing: 5px;
 }
 
 button {
@@ -13,4 +17,8 @@ button {
 
 p{
     background: yellowgreen;
+    line-height: 5;
+}
+a {
+    text-decoration: none;
 }
