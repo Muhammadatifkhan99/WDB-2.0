@@ -71,5 +71,13 @@
     <textarea name="request" id="request" rows="10" cols="10" placeholder="please enter your requests"></textarea>
             <button>Submit</button>
     </form>
+    <h2>Validations Demo</h2>
+    <form action="/dummy">
+        <label for="first">Enter your user name</label>
+        <input type="text" name="first" id="first" required>
+        <label for="uname">Enter your username</label>
+        <input type="text" name="uname" id="uname" minlength="5" maxlength="10" required>
+        <button>Submit</button>
+    </form>
 </body>
 </html>
