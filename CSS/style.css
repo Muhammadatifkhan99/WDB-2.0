@@ -1,7 +1,6 @@
 /* *{
     background-color: rgb(135, 98, 98);
 } */
-
 button{
     font-size: 30px;
 }
@@ -20,14 +19,46 @@ h1,h2{
  }
  .post a {
     color: green;
+    text-decoration: none;
  }
  li a {
     color: green;
+    text-decoration: none;
  }
 
  input[type="text"] {
    color: yellowgreen;
  }
- footer[class="foot"]{
+ /* footer[class="foot"]{
    background-color: blue;
+ } */
+ footer.foot {
+   background-color: goldenrod;
+ }
+
+ a[href*="google"]{
+   color: #ff006e;
+ }
+
+ button:hover {
+   background-color: red;
+   color: azure;
+ }
+
+ a:hover {
+   text-decoration: underline;
+ }
+ .post button {
+   background-color: #2a9d8f;
+ }
+
+ .post:nth-of-type(2n) {
+   background-color: aquamarine;
+ }
+
+ h2::first-letter{
+   font-size: 100px;
+ }
+ ::selection{
+   color: whitesmoke;
  }
