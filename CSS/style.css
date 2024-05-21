@@ -1,5 +1,5 @@
 *{
-    background-color: cyan;
+    background-color: rgb(135, 98, 98);
 }
 
 button{
@@ -14,4 +14,13 @@ h1,h2{
  #signup {
     background-color: #00b4d8;
     color: #ff006e;
+ }
+ .btn {
+    color: blue;
+ }
+ .post a {
+    color: green;
+ }
+ li a {
+    color: green;
  }
