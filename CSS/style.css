@@ -1,24 +1,17 @@
-h1 {
-    color: #000;
-    background-color: rgb(0,255,0);
+*{
+    background-color: cyan;
 }
 
-h2{
-    color: blue;
-    text-align: center;
-    text-decoration: #000 underline;
-    letter-spacing: 5px;
+button{
+    font-size: 30px;
 }
+h1,h2{
+    font-size: 50px;
+    color: rgb(10, 1, 68);
+}
+ /* the id selector */
 
-button {
-    background-color: black;
-    color: white;
-}
-
-p{
-    background: yellowgreen;
-    line-height: 5;
-}
-a {
-    text-decoration: none;
-}
+ #signup {
+    background-color: #00b4d8;
+    color: #ff006e;
+ }
