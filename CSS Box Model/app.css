@@ -6,8 +6,16 @@ div {
 h1 {
     background-color: pink;
     width: 100px;
+    margin-left: 200px;
 }
 
 button {
     padding: 5px;
+    margin: 200px;
+}
+.div1 {
+    margin: 200px;
+}
+.div2 {
+    margin: 200px;
 }
