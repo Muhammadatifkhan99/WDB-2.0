@@ -1,0 +1,17 @@
+section {
+    background-color: aquamarine;
+    width: 600px;
+    height: 600px;
+}
+div{
+    background-color: black;
+    width: 70%;
+    height: 40%;
+    /*this is an example of using percentage values that is taking percentage from the parent
+    element and using it.*/
+}
+h1{
+    font-size: 40px;
+    border: 1px solid red;
+    line-height: 80px;
+}

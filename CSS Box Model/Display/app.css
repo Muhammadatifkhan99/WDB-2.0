@@ -1,0 +1,29 @@
+span {
+    /* background-color: blueviolet; */
+    border: 1px solid black;
+    /* width: 100px; these values are not respected in any way...
+    height: 100px; */
+    /* padding: 100px; as it is an inline element so alll these things will not be respected in any way....
+    margin: 50px; */
+}
+
+h1 {
+    background-color: blueviolet;
+    border: 1px solid black;
+    /* width: 100px;  */
+    /*these values are not respected in any way...*/
+    /* height: 100px; */
+    padding: 100px; 
+    /*as it is an inline element so alll these things will not be respected in any way....*/
+    margin: 50px;
+    display: none;
+}
+div {
+    background-color: olivedrab;
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    display: inline-block;
+    margin: 100px;
+    padding: 100px;
+}
