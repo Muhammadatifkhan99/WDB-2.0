@@ -10,24 +10,28 @@ div{
     /*this is an example of using percentage values that is taking percentage from the parent
     element and using it.*/
 }
-h1{
+#ems h1{
     font-size: 40px;
     border: 1px solid red;
     line-height: 80px;
 }
 
-h2{
+#ems h2{
     font-size: 2em;
     margin-left: 1em;
 }
-p {
+#ems p {
     font-size: 1em;
 }
-h2 {
+#ems h2 {
     font-size: 1.5em;
 }
-article {
+#ems article {
     font-size:20px;
+}
+
+#ems ul {
+    font-size: 0.7em;
 }
 button {
     font-size: 1em;
@@ -36,6 +40,16 @@ button {
     background-color: blueviolet;
     color: white;
 }
-ul {
-    font-size: 0.7em;
+
+#rems h2 {
+    font-size: 3rem;
+}
+#rems h3 {
+    font-size: 2rem;
+}
+#rems ul {
+    font-size: 0.8rem;
+}
+#rems button {
+    font-size: 1rem;
 }

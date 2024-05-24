@@ -8,13 +8,40 @@
 </head>
 <body>
     <h1>CSS Units <button>Click Me</button></h1>
-    <p>These all button are scaled on the font size of the element.with ems things get scale with that
-        font size is changed.One of the problem with em is that they can grow and shrink very quickly.The main this 
-        the child element gets the font size from the parent and multiple it the number of times of ems
-        causeing much larger fonts.
+    <p>Rems:<br>
+        Relative to the root html element's font size. Often easier to work with. If the root font size is 
+        20px, 1 rem is 20px. 2 rem is always 20px, etc.
+        EMS changes with the root element font size while REMS changes with 
     </p>
-    <article>
+    <article class="ems">
         <h2>I am an H2</h2>
+        <h3>I am an H3</h3>
+        <button>Click Me</button>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolorem odio
+             repellendus, totam aspernatur ex sequi, 
+            nam repellat incidunt temporibus quisquam hic quidem beatae ab omnis quasi nobis. 
+            Eaque, totam?
+        Amet dicta reprehenderit, id hic laudantium laboriosam rerum vero non pariatur 
+        dolorem 
+        quaerat porro animi a nostrum nulla vel? Odio porro voluptatum harum blanditiis.
+         Eveniet velit excepturi sapiente neque a!</p>
+         <ul>
+            <li>Pasta
+                <ul>
+                    <li>Ravoili
+                        <ul>
+                            <li>spinach Ricotta</li>
+                        </ul>
+                    </li>
+                    <li>Penne</li>
+                </ul>
+            </li>
+            <li>Salad</li>
+            <li>Gelato</li>
+         </ul>
+    </article>
+    <article id="rems">
+        <h2>Using REMS instead of EMS</h2>
         <h3>I am an H3</h3>
         <button>Click Me</button>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolorem odio
