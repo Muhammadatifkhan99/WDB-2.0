@@ -27,7 +27,7 @@ h2 {
     font-size: 1.5em;
 }
 article {
-    font-size:50px;
+    font-size:20px;
 }
 button {
     font-size: 1em;
@@ -35,4 +35,7 @@ button {
     border-radius: 1.5em;
     background-color: blueviolet;
     color: white;
+}
+ul {
+    font-size: 0.7em;
 }
