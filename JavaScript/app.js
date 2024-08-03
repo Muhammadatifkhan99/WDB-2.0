@@ -11,12 +11,14 @@
 
 // console.log("These are everthing about the JS if Statements")
 
-const dayOfWeek = "Monday"
+// const dayOfWeek = "Monday"
 
-if (dayOfWeek === "Friday"){
-    console.log("Yay its friday")
-} else if (dayOfWeek === "Monday"){
-    console.log("its again Monday")
-} else if (dayOfWeek === "Saturday"){
-    console.log("I love Saturdays")
-}
+// if (dayOfWeek === "Friday"){
+//     console.log("Yay its friday")
+// } else if (dayOfWeek === "Monday"){
+//     console.log("its again Monday")
+// } else if (dayOfWeek === "Saturday"){
+//     console.log("I love Saturdays")
+// }
+
+
