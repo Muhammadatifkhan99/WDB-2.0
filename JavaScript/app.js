@@ -1,3 +1,47 @@
+const day = 1;
+switch(day) {
+    case 1:
+        console.log("Monday")
+        break;
+    case 2:
+        console.log("Tuesday")
+        break;
+    case 3:
+        console.log("Wednesday")
+        break;
+    case 4:
+        console.log("Thurday")
+        break;
+    case 5:
+        console.log("Friday")
+        break;
+    case 6:
+        console.log("Saturday")
+        break;
+    case 7:
+        console.log("Sunday")
+        break;
+    default:
+        console.log("Invalid Entry")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let random = Math.random();
 
 // if(random < 0.5){
@@ -46,7 +90,7 @@
 
 //Truthy and Falsy
 
-let userInput = prompt("Enter anything: ");
+// let userInput = prompt("Enter anything: ");
 
 // if (userInput){
 //     console.log("Truthy")
@@ -55,8 +99,8 @@ let userInput = prompt("Enter anything: ");
 // }
 
 
-if(0){
-    console.log("Falsy")
-} else {
-    console.log("Truthy")
-}
+// if(0){
+//     console.log("Falsy")
+// } else {
+//     console.log("Truthy")
+// }
