@@ -137,39 +137,104 @@
 //concat()--->merge two arrays
 //===================================================================================
 
-let colors = ["red","orange","blue"];
-let colors2 = ["black","indigo","brown"];
+// let colors = ["red","orange","blue"];
+// let colors2 = ["black","indigo","brown"];
 
+// let colors3 = colors.concat(colors2);
+
+// console.log(colors3);
+
+
+
+// //================================================================================
+// //include()---> a boolean method that searchs for a value in an array....
+// //================================================================================
+
+// console.log(colors.includes("red"));
+
+
+// //==============================
+// //indexOf()
+// //==============================
+
+// console.log(colors3.indexOf("red"));
+// console.log(colors3.indexOf("black"));
+// console.log(colors3.indexOf("al;jfal"));
+// console.log("Blue".indexOf());
+
+
+// //===========================================
+// //reverse()-->reveres an array.reverse is a destructive method it changes the original
+// //===========================================
+
+// console.log(colors3);
+
+// console.log(colors3.reverse());
+
+// console.log(colors3);
+
+//======================================================================================
+//slice() and splice() methods in array
+//======================================================================================
+
+let colors = ["red","orange","blue"];
+let colors2 = ["black","indigo","brown","violet"];
 let colors3 = colors.concat(colors2);
 
 console.log(colors3);
+console.log(colors3.slice());
+console.log(colors3.slice(3));
+console.log(colors3.slice(5));
+//slice(2,4)...starts at the index of 2 but ends at the index of 3 not at 4...
+//4 is exclusive..............................................................
+
+console.log(colors3.slice(2,5));
+console.log(colors3.slice(2,6));
+console.log(colors3.slice(2,4));
+
+let lengthArray = colors3.length;
+console.log(colors3.slice(0,lengthArray));
+
+console.log(colors3.slice());
+console.log(colors3.slice(-3));
 
 
-
-//================================================================================
-//include()---> a boolean method that searchs for a value in an array....
-//================================================================================
-
-console.log(colors.includes("red"));
-
-
-//==============================
-//indexOf()
-//==============================
-
-console.log(colors3.indexOf("red"));
-console.log(colors3.indexOf("black"));
-console.log(colors3.indexOf("al;jfal"));
-console.log("Blue".indexOf());
-
-
-//===========================================
-//reverse()-->reveres an array.reverse is a destructive method it changes the original
-//===========================================
+///SPLICE
+///its destructive to the original array does not makes a copy of the array....
+//////it returns an array of the removed element...
+//////
 
 console.log(colors3);
-
-console.log(colors3.reverse());
-
+console.log(colors3.splice(5,1));
 console.log(colors3);
+
+// console.log(colors3.splice(1,0,"1212"))
+console.log(colors3.splice(1,0,"red-orange"))
+console.log(colors3.splice(4,0,"Yellow-Green","Greenish-blue"));
+
+
+///
+///SORT()
+////
+//does not sort numerically or in ascending or descending order...
+//sort according to utf-16 code...
+///
+//
+///
+
+let nums = [0,76,34,2,8,1223,3,7,-12,-34344,-9];
+console.log(nums.sort());
+
+
+///
+///
+//
+///
+//Turning an array in to string
+let names = ["Muhammad","Atif","Ali","Khan"];
+console.log(names.toString());
+
+
+//
+//
 
