@@ -120,15 +120,56 @@
 //unshift()->adds elements to the start of the array...
 
 
-let moviesLine = ["Ali","Khan"];
+// let moviesLine = ["Ali","Khan"];
 
-moviesLine.push("Atif");
+// moviesLine.push("Atif");
 
-console.log(moviesLine);
+// console.log(moviesLine);
 
-moviesLine.unshift("VIP 1");
-moviesLine.unshift("VIP 2");
-moviesLine.unshift("VIP 3");
+// moviesLine.unshift("VIP 1");
+// moviesLine.unshift("VIP 2");
+// moviesLine.unshift("VIP 3");
 
-console.log(moviesLine);
+// console.log(moviesLine);
+
+
+//===================================================================================
+//concat()--->merge two arrays
+//===================================================================================
+
+let colors = ["red","orange","blue"];
+let colors2 = ["black","indigo","brown"];
+
+let colors3 = colors.concat(colors2);
+
+console.log(colors3);
+
+
+
+//================================================================================
+//include()---> a boolean method that searchs for a value in an array....
+//================================================================================
+
+console.log(colors.includes("red"));
+
+
+//==============================
+//indexOf()
+//==============================
+
+console.log(colors3.indexOf("red"));
+console.log(colors3.indexOf("black"));
+console.log(colors3.indexOf("al;jfal"));
+console.log("Blue".indexOf());
+
+
+//===========================================
+//reverse()-->reveres an array.reverse is a destructive method it changes the original
+//===========================================
+
+console.log(colors3);
+
+console.log(colors3.reverse());
+
+console.log(colors3);
 
