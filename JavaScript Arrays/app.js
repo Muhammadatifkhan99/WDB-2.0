@@ -288,3 +288,15 @@ console.log(myEggs);
 myEggs.push("blue");
 
 console.log(myEggs);
+
+
+//MULTI-DEMENSIONAL ARRAYS
+
+let gameBoard = [['x','0','x'],['x','null','0'],['0','x','0']];
+
+console.log(gameBoard);
+console.log(gameBoard[0][1]);
+console.log(gameBoard[1][1]);
+console.log(gameBoard[2][1]);
+
+//gameBoard[1][0][].......
