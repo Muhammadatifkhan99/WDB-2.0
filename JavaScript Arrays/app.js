@@ -75,28 +75,60 @@
 //unshift
 //...
 
-let moviesLine = ["Ali","Khan"];
+// let moviesLine = ["Ali","Khan"];
 
 
 //the push method adds things at the end of the array...
-moviesLine.push("Atif");
-moviesLine.push("Muhammad");
-moviesLine.push("Sahal");
-moviesLine.push("Hashim");
+// moviesLine.push("Atif");
+// moviesLine.push("Muhammad");
+// moviesLine.push("Sahal");
+// moviesLine.push("Hashim");
 
-for(i=1;i<moviesLine.length;i++){
-    console.log(moviesLine[i])
-}
+// console.log(moviesLine);
+
+// for(i=1;i<moviesLine.length;i++){
+//     console.log(moviesLine[i])
+// }
 
 //pop() methods remove things from the end of the array...
 
 
-moviesLine.pop();
+// moviesLine.pop();
+// console.log(moviesLine);
+
+// moviesLine.pop();
+// console.log(moviesLine)
+
+// let person = moviesLine.pop();
+
+// console.log(person);
+
+
+//===================================================================================
+//shift() and unshift() methods in JS
+//===================================================================================
+
+
+
+//shift()-> remove elements fromt the start of the array...
+// for(i=0;i<6;i++){
+//     console.log(moviesLine.shift());
+// }
+// console.log(moviesLine);
+
+
+//unshift()->adds elements to the start of the array...
+
+
+let moviesLine = ["Ali","Khan"];
+
+moviesLine.push("Atif");
+
 console.log(moviesLine);
 
-moviesLine.pop();
-console.log(moviesLine)
+moviesLine.unshift("VIP 1");
+moviesLine.unshift("VIP 2");
+moviesLine.unshift("VIP 3");
 
-let person = moviesLine.pop();
+console.log(moviesLine);
 
-console.log(person);
