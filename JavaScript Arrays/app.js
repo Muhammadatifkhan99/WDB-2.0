@@ -177,64 +177,98 @@
 //slice() and splice() methods in array
 //======================================================================================
 
-let colors = ["red","orange","blue"];
-let colors2 = ["black","indigo","brown","violet"];
-let colors3 = colors.concat(colors2);
+// let colors = ["red","orange","blue"];
+// let colors2 = ["black","indigo","brown","violet"];
+// let colors3 = colors.concat(colors2);
 
-console.log(colors3);
-console.log(colors3.slice());
-console.log(colors3.slice(3));
-console.log(colors3.slice(5));
-//slice(2,4)...starts at the index of 2 but ends at the index of 3 not at 4...
-//4 is exclusive..............................................................
+// console.log(colors3);
+// console.log(colors3.slice());
+// console.log(colors3.slice(3));
+// console.log(colors3.slice(5));
+// //slice(2,4)...starts at the index of 2 but ends at the index of 3 not at 4...
+// //4 is exclusive..............................................................
 
-console.log(colors3.slice(2,5));
-console.log(colors3.slice(2,6));
-console.log(colors3.slice(2,4));
+// console.log(colors3.slice(2,5));
+// console.log(colors3.slice(2,6));
+// console.log(colors3.slice(2,4));
 
-let lengthArray = colors3.length;
-console.log(colors3.slice(0,lengthArray));
+// let lengthArray = colors3.length;
+// console.log(colors3.slice(0,lengthArray));
 
-console.log(colors3.slice());
-console.log(colors3.slice(-3));
-
-
-///SPLICE
-///its destructive to the original array does not makes a copy of the array....
-//////it returns an array of the removed element...
-//////
-
-console.log(colors3);
-console.log(colors3.splice(5,1));
-console.log(colors3);
-
-// console.log(colors3.splice(1,0,"1212"))
-console.log(colors3.splice(1,0,"red-orange"))
-console.log(colors3.splice(4,0,"Yellow-Green","Greenish-blue"));
+// console.log(colors3.slice());
+// console.log(colors3.slice(-3));
 
 
-///
-///SORT()
-////
-//does not sort numerically or in ascending or descending order...
-//sort according to utf-16 code...
-///
+// ///SPLICE
+// ///its destructive to the original array does not makes a copy of the array....
+// //////it returns an array of the removed element...
+// //////
+
+// console.log(colors3);
+// console.log(colors3.splice(5,1));
+// console.log(colors3);
+
+// // console.log(colors3.splice(1,0,"1212"))
+// console.log(colors3.splice(1,0,"red-orange"))
+// console.log(colors3.splice(4,0,"Yellow-Green","Greenish-blue"));
+
+
+// ///
+// ///SORT()
+// ////
+// //does not sort numerically or in ascending or descending order...
+// //sort according to utf-16 code...
+// ///
+// //
+// ///
+
+// let nums = [0,76,34,2,8,1223,3,7,-12,-34344,-9];
+// console.log(nums.sort());
+
+
+// ///
+// ///
+// //
+// ///
+// //Turning an array in to string
+// let names = ["Muhammad","Atif","Ali","Khan"];
+// console.log(names.toString());
+
+
+//The === Operator
 //
-///
+let str1 = "hi";
+let str2 = "hi";
 
-let nums = [0,76,34,2,8,1223,3,7,-12,-34344,-9];
-console.log(nums.sort());
+console.log(str1===str2);
+
+let arr1 = [1];
+let arr2 = [2];
+
+console.log(arr1===arr2);
+
+//two arrays are not equal to one another...why because JS does not compare the content inside 
+//array its only compare the references in the memory....
+
+let nums = [1,2,3];
+let numCopy = nums;
+
+//this two arrays are point to one another adding things in one array will add them 
+//in another array as well...
+
+console.log(nums);
+console.log(numCopy);
+
+nums.push(4);
+
+numCopy.push(5);
+
+//in this case we are referring to the same thing in memory 
+console.log(nums);
+console.log(numCopy);
 
 
-///
-///
-//
-///
-//Turning an array in to string
-let names = ["Muhammad","Atif","Ali","Khan"];
-console.log(names.toString());
-
-
-//
-//
+//but they are the same thing then we can compare the content to be equal or not...
+//=== or == are going to check the refernce in the memory
+console.log(nums===numCopy);
 
