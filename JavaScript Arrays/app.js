@@ -237,38 +237,54 @@
 
 //The === Operator
 //
-let str1 = "hi";
-let str2 = "hi";
+// let str1 = "hi";
+// let str2 = "hi";
 
-console.log(str1===str2);
+// console.log(str1===str2);
 
-let arr1 = [1];
-let arr2 = [2];
+// let arr1 = [1];
+// let arr2 = [2];
 
-console.log(arr1===arr2);
+// console.log(arr1===arr2);
 
-//two arrays are not equal to one another...why because JS does not compare the content inside 
-//array its only compare the references in the memory....
+// //two arrays are not equal to one another...why because JS does not compare the content inside 
+// //array its only compare the references in the memory....
 
-let nums = [1,2,3];
-let numCopy = nums;
+// let nums = [1,2,3];
+// let numCopy = nums;
 
-//this two arrays are point to one another adding things in one array will add them 
-//in another array as well...
+// //this two arrays are point to one another adding things in one array will add them 
+// //in another array as well...
 
-console.log(nums);
-console.log(numCopy);
+// console.log(nums);
+// console.log(numCopy);
 
-nums.push(4);
+// nums.push(4);
 
-numCopy.push(5);
+// numCopy.push(5);
 
-//in this case we are referring to the same thing in memory 
-console.log(nums);
-console.log(numCopy);
+// //in this case we are referring to the same thing in memory 
+// console.log(nums);
+// console.log(numCopy);
 
 
-//but they are the same thing then we can compare the content to be equal or not...
-//=== or == are going to check the refernce in the memory
-console.log(nums===numCopy);
+// //but they are the same thing then we can compare the content to be equal or not...
+// //=== or == are going to check the refernce in the memory
+// console.log(nums===numCopy);
 
+//============================================
+//Const + Arrays
+//============================================
+
+const myEggs = ["brown","brown"];
+
+//the content of the array can be changed as long as the refernces is the same
+// we can not point the reference to somewhere else
+//
+//e.g we can not do like this
+// myEggs = ["brown","black"]
+
+console.log(myEggs);
+myEggs.push("blue");
+
+console.log(myEggs);
