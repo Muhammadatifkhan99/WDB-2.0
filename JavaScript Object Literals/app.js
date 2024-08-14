@@ -61,6 +61,16 @@ console.log(midterms);
 
 
 
+const comments = [
+    {username: "Tammy", text:"lolololol", votes: 9},
+    {username: "FishBio", text: "blub blub", votes:12323}
+]
+
+console.log(comments[1].text);
+
+
+
+
 
 
 
