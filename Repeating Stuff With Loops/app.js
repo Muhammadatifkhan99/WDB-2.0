@@ -21,6 +21,12 @@
 //     console.log(i);
 // }
 
-for(let i =10; i<=10000;i*=10){
+// for(let i =10; i<=10000;i*=10){
+//     console.log(i);
+// }
+
+//INFINITE LOOPS
+
+for(let i=20;i>0;i--){
     console.log(i);
 }
