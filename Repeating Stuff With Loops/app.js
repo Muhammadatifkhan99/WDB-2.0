@@ -17,6 +17,10 @@
 //PRINTING EVEN NUMBERS USING FOR LOOP
 
 
-for(let i=2;i<21;i+=2){
+// for(let i=100;i>=0;i--){
+//     console.log(i);
+// }
+
+for(let i =10; i<=10000;i*=10){
     console.log(i);
 }
