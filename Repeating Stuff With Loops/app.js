@@ -9,7 +9,14 @@
 // console.log(9);
 // console.log(10);
 
-for(let i=1;i<=10;i++){
-    console.log("Print the number: ");
+// for(let i=1;i<=10;i++){
+//     console.log("Print the number: ");
+//     console.log(i);
+// }
+
+//PRINTING EVEN NUMBERS USING FOR LOOP
+
+
+for(let i=1;i<21;i+=2){
     console.log(i);
 }
