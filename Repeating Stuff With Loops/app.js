@@ -118,12 +118,80 @@
 //     count1 ++;
 // }
 
-let SECRET_CODE = "ALIKHAN";
+// let SECRET_CODE = "ALIKHAN";
 
-let guess = prompt("enter the secret code to continue");
+// let guess = prompt("enter the secret code to continue");
 
-while(guess !== SECRET_CODE){
-    guess = prompt("enter the secret code to continue");
+// while(guess !== SECRET_CODE){
+//     guess = prompt("enter the secret code to continue");
+// }
+
+// console.log("You Got the Secret Code");
+
+// let input = prompt("Hey, Say Something");
+
+// while(true){
+//     if(input.toLowerCase() === "stop copying me") break;
+//     else
+//         input = prompt(input);
+    
+// }
+// console.log("Ok! You Win");
+
+
+// for(let i= 0;i<1000;i++){
+//     if(i === 100) break;
+//     console.log(i);
+    
+// }
+
+
+const subreddits = ["books","tree","soccar","pics", "chickens", "funny", "winter"];
+
+for(let i=0;i<=subreddits.length - 1;i++){
+    console.log(`Visit reddit.com/r/${subreddits[i]}`);
 }
 
-console.log("You Got the Secret Code");
+for(let sub of subreddits){
+    console.log(`Visit reddit.com/r/${sub}`);
+}
+
+
+let seatingChart = [
+    ["Ali", "Hashim", "khan"],
+    ["sahal", "Izza", "Mehwish"],
+    ["Mehria","Aslam","Gul"]
+]
+
+for(let i=0;i<seatingChart.length - 1;i++){
+    let row = seatingChart[i]
+    for(let j=0;j<row.length;j++){
+        console.log(`Students of Row # ${i + 1} are ${row[j]}`)
+    }
+}
+
+for(let row of seatingChart){
+    for(let students of row){
+        console.log(`${students}`)
+    }
+}
+
+
+//Iterating over iterables
+
+for(let char of "Hello Muhammad"){
+    console.log(char);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
