@@ -184,6 +184,34 @@ for(let char of "Hello Muhammad"){
 }
 
 
+const testScores = {
+    ali:89,
+    khan: 90,
+    lala: 23,
+    hasim: 95,
+    sahal: 99,
+    elvira: 85
+}
+
+// for(let scores of testScores){   //testScores is not iterable so the for...of loop cannot
+//     console.log(scores);         // be used to iterate things  that are not iterable....
+// }
+
+
+// for(let scores in testScores){
+//     console.log(`${scores} scores ${testScores[scores]}`);
+// }
+//This loop can be used to iterate over thing that are not iterable in JavaScript
+
+
+let total = 0;
+let scoreLength = Object.values(testScores).length;
+for(let score of Object.values(testScores)){
+    total += score;
+    console.log(score);
+}
+
+console.log(total/scoreLength);
 
 
 
