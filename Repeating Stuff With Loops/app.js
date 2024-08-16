@@ -92,15 +92,38 @@
 // }
 
 
-let seatingChart = [
-    ["Ali", "Hashim", "khan"],
-    ["sahal", "Izza", "Mehwish"],
-    ["Mehria","Aslam","Gul"]
-]
+// let seatingChart = [
+//     ["Ali", "Hashim", "khan"],
+//     ["sahal", "Izza", "Mehwish"],
+//     ["Mehria","Aslam","Gul"]
+// ]
 
-for(let i=0;i<seatingChart.length - 1;i++){
-    let row = seatingChart[i]
-    for(let j=0;j<row.length;j++){
-        console.log(`Students of Row # ${i + 1} are ${row[j]}`)
-    }
+// for(let i=0;i<seatingChart.length - 1;i++){
+//     let row = seatingChart[i]
+//     for(let j=0;j<row.length;j++){
+//         console.log(`Students of Row # ${i + 1} are ${row[j]}`)
+//     }
+// }
+
+// let count = 0;
+
+// while(count < 10){
+//     count ++;
+//     console.log(count);
+// }
+
+// let count1 = 0;
+// while(count1 < 10){
+//     console.log(count1);
+//     count1 ++;
+// }
+
+let SECRET_CODE = "ALIKHAN";
+
+let guess = prompt("enter the secret code to continue");
+
+while(guess !== SECRET_CODE){
+    guess = prompt("enter the secret code to continue");
 }
+
+console.log("You Got the Secret Code");
