@@ -49,7 +49,19 @@ repeat("Atif", 4);
 repeat("A", 2);
 repeat("f", 5);
 
+//Snake Eye Excercise
 
+function isSnakeEye(die1,die2){
+    if(die1 === 1 && die2 ===1){
+        console.log("Snake Eye");
+    } else {
+        console.log("Not Snake Eyes");
+    }
+}
+
+isSnakeEye(1,1);
+isSnakeEye(2,3);
+isSnakeEye(5,4);
 
 
 
