@@ -22,8 +22,34 @@
 
 //Excercise
 
-function rant(message){
-    console.log(message.toUpperCase());
-    console.log(message.toUpperCase());
-    console.log(message.toUpperCase());
+// function rant(message){
+//     console.log(message.toUpperCase());
+//     console.log(message.toUpperCase());
+//     console.log(message.toUpperCase());
+// }
+
+function greet(firstName, lastName){
+    console.log(`Hey there, ${firstName} ${lastName[0]}.`)
 }
+
+greet("Muhammad","Atif");
+greet("Khan","Muhammad");
+greet("Sahal", "Farhan");
+
+
+function repeat(str, numTimes){
+    let result = "";
+    for(let i=0;i<numTimes;i++){
+        result += str;
+    }
+    console.log(result)
+}
+
+repeat("Atif", 4);
+repeat("A", 2);
+repeat("f", 5);
+
+
+
+
+
