@@ -53,14 +53,24 @@ function bankRobbery(){
     cryForHelp();
 }
 // The lexical scope have access to everthing in the lexical order but not the way back up
-// you can not access things/variables up in the code/ defined above where called
-
-
-
-
-
+// you can not access things/variables up in the code/ defined above where called...
 //////////////////////////////////////////////////////////////////////////////////
 
+
+
+///////////////////FUNCTION EXPRESSIONS////////////////////////////////////////////
+
+// function add(x,y){
+//     return x + y;
+// }
+
+
+//Functions expressions are just another way of defining functions and they behave just like 
+// the way normal functions are defined....behind the scene functions are objects...
+// we can pass functions to other functions as arguments as well.....
+const add = function(x,y){
+    return x + y;
+}
 
 
 
