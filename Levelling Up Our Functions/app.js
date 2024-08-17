@@ -68,9 +68,43 @@ function bankRobbery(){
 //Functions expressions are just another way of defining functions and they behave just like 
 // the way normal functions are defined....behind the scene functions are objects...
 // we can pass functions to other functions as arguments as well.....
-const add = function(x,y){
-    return x + y;
+// const add = function(x,y){
+//     return x + y;
+// }
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////HIGHER ORDER FUNCTIONS////////////////////////////////////////////
+
+//These are functions that operate on/with other functions
+//They can:
+//          Accept other functions as arguments
+//          Return a function
+
+function callTwice(func){
+    func();
+    func();
 }
+function callTenTimes(func){
+    for(let i=0;i<10;i++){
+        func();
+    }
+}
+
+function rollDie(){
+    let roll = Math.floor(Math.random()* 6) + 1;
+    console.log(roll);
+}
+
+callTwice(rollDie);
+
+//callTwich(rollDie()) This will execut the function rollDie and return a number 
+//which is not a correct way...
+
+
+callTenTimes(rollDie);
+
 
 
 
