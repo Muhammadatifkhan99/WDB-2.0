@@ -25,17 +25,41 @@
 // console.log(PI); // Block scoping with let can be avoided with """""var"""""
 
 
-let radius = 8;
+// let radius = 8;
 
-if(radius > 0){
-    var PI = 3.1459;
-    var circ = 15;
+// if(radius > 0){
+//     var PI = 3.1459;
+//     var circ = 15;
+// }
+// //This is only possible in case of var definition but var is almost deprecated and no longer needed to be used..
+
+// console.log(radius);
+// console.log(circ);
+// console.log(PI);
+
+
+///////////////////LEXICAL SCOPING////////////////////////////////////////////
+
+function bankRobbery(){
+    const heroes = ["spiderman", "batman","wolverine","black panther"];
+    function cryForHelp(){
+        function innerftn (){
+            for(let hero of heroes){
+            console.log(`Please help us! ${hero.toUpperCase()}`);
+        }
+        }
+        innerftn();
+    }
+    cryForHelp();
 }
-//This is only possible in case of var definition but var is almost deprecated and no longer needed to be used..
+// The lexical scope have access to everthing in the lexical order but not the way back up
+// you can not access things/variables up in the code/ defined above where called
 
-console.log(radius);
-console.log(circ);
-console.log(PI);
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
 
 
 
