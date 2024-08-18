@@ -82,30 +82,61 @@ function bankRobbery(){
 //          Accept other functions as arguments
 //          Return a function
 
-function callTwice(func){
-    func();
-    func();
-}
-function callTenTimes(func){
-    for(let i=0;i<10;i++){
-        func();
+// function callTwice(func){
+//     func();
+//     func();
+// }
+// function callTenTimes(func){
+//     for(let i=0;i<10;i++){
+//         func();
+//     }
+// }
+
+// function rollDie(){
+//     let roll = Math.floor(Math.random()* 6) + 1;
+//     console.log(roll);
+// }
+
+// callTwice(rollDie);
+
+// //callTwich(rollDie()) This will execut the function rollDie and return a number 
+// //which is not a correct way...
+
+
+// callTenTimes(rollDie);
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////RETURNING A FUNCTION FROM A FUNCTION////////////////////////////////////////////
+
+function myMysteryfunction(){
+    let rand = Math.random();
+    if(rand > 0.5){
+        return function (){
+            console.log("Congrats!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console.log("You WON a Million Dollars");
+        }
+    } else {
+        alert("You have been impacted by a Computer Virus");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        alert("DONOT TRY TO CLOSE THIS WINDOWS");
+        
     }
 }
 
-function rollDie(){
-    let roll = Math.floor(Math.random()* 6) + 1;
-    console.log(roll);
+// myMysteryfunction();
+// myMysteryfunction();
+
+function isBetween(min,max){
+    return function(num){
+        return num >=min && num <= max;
+    }
 }
-
-callTwice(rollDie);
-
-//callTwich(rollDie()) This will execut the function rollDie and return a number 
-//which is not a correct way...
-
-
-callTenTimes(rollDie);
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
