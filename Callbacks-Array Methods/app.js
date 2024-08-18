@@ -100,16 +100,43 @@ let greet = person => {
 ///////////////////////////////////////////////////////////////////////////////
 //IMPLICIT RETURNS IN JAVASCRIPT
 
-let addi = (x,y) => {
-    return x + y;
-}
+// let addi = (x,y) => {
+//     return x + y;
+// }
 
-let addy = (x,y) => x + y
+// let addy = (x,y) => x + y
 
-let rand = () => (
-    Math.floor(Math.random() * 6) +1
-)
+// let rand = () => (
+//     Math.floor(Math.random() * 6) +1
+// )
 
+let movies = [
+    {
+        title: "Amadeus",
+        score: 99
+    },
+    {
+        title: "Parasite",
+        score: 98
+    },
+    {
+        title: "Stand by Me",
+        score: 85
+    },
+    {
+        title: "Alien",
+        score: 90
+    }
+
+]
+
+// let newMovies = movies.map(function (movie) {
+//     return `${movie.title} - ${movie.score/10}`
+// })
+
+let newMovies = movies.map(movie => (
+    `${movie.title} - ${movie.score/10}`
+))
 
 
 
