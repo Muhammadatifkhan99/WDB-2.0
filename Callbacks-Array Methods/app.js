@@ -10,14 +10,60 @@ const number = ["1","2","3","4","5","6","7","8","9","10"];
 
 // number.forEach(print);
 
-number.forEach(function (el){
-    console.log(el);
+// number.forEach(function (el){
+//     console.log(el);
+// })
+
+// //FOR EACH FOR EVEN NUMBERS
+
+// number.forEach(function (el){
+//     if(el % 2 === 0){
+//         console.log(el);
+//     }
+// })
+
+//These methods expects a method to be passed in to them.
+//and they call the function for each item again and agian...
+///////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////MAP/////////////////////////////////////
+
+const doubles = number.map(function (num){
+    return num * 2;
 })
 
-//FOR EACH FOR EVEN NUMBERS
 
-number.forEach(function (el){
-    if(el % 2 === 0){
-        console.log(el);
+let movies = [
+    {
+        title: "Amadeus",
+        score: 99
+    },
+    {
+        title: "Parasite",
+        score: 98
+    },
+    {
+        title: "Stand by Me",
+        score: 85
+    },
+    {
+        title: "Alien",
+        score: 90
     }
+
+]
+
+let titles = movies.map(function (movie){
+    return movie.title.toUpperCase();
 })
+
+
+let scores = movies.map(function(t){
+    return t.score;
+})
+
+
+
+
+
