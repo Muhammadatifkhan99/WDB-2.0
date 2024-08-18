@@ -89,3 +89,9 @@ let mul = (x,y) => {
 let nothing = () => {
     console.log("nothing");
 }
+
+let greet = person => {
+    console.log(`Hey ${person}`);
+}
+
+///////////////////////////////////////////////////////////////////////////////
