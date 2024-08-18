@@ -139,9 +139,35 @@ function isBetween(min,max){
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
+///////////////////DEFINING METHODS////////////////////////////////////////////
 
 
+//WE CAN FUNCTIONS ON OBJECT AND WE CALL THEM AS METHODS
+//A METHOD IS SIMPLY A FUNCTION THAT IS CALLED AS A PROPERTY ON THE OBJECT
+//
 
+
+// const myMath = {
+//     PI: 3.14589,
+//     square: function(num){
+//         return num **2;
+//     },
+//     cube: function (num){
+//         return num **3;
+//     }
+// }
+
+//RECENTLY INTRODUCED SYNTAX TO JS
+
+const myMath = {
+    PI : 3.124,
+    square (num) {
+        return num **2;
+    },
+    cube (num){
+        return num **3;
+    }
+}
 
 
 
