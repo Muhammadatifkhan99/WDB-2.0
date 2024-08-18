@@ -159,23 +159,32 @@ function isBetween(min,max){
 
 //RECENTLY INTRODUCED SYNTAX TO JS
 
-const myMath = {
-    PI : 3.124,
-    square (num) {
-        return num **2;
-    },
-    cube (num){
-        return num **3;
+// const myMath = {
+//     PI : 3.124,
+//     square (num) {
+//         return num **2;
+//     },
+//     cube (num){
+//         return num **3;
+//     }
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////THE DREAD KEYWORD THIS////////////////////////////////////////////
+
+const cat = {
+    name: "Blue Steele",
+    color: "grey",
+    breed: "Scottish Fold",
+    meow() {
+        console.log("This is: ",this);
+        console.log(`${this.name} say meow`);
     }
+
 }
 
-
-
-
-
-
-
-
+let meow2 = cat.meow();
 
 
 
