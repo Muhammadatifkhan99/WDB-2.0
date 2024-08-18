@@ -173,20 +173,39 @@ function isBetween(min,max){
 
 ///////////////////THE DREAD KEYWORD THIS////////////////////////////////////////////
 
-const cat = {
-    name: "Blue Steele",
-    color: "grey",
-    breed: "Scottish Fold",
-    meow() {
-        console.log("This is: ",this);
-        console.log(`${this.name} say meow`);
-    }
+// const cat = {
+//     name: "Blue Steele",
+//     color: "grey",
+//     breed: "Scottish Fold",
+//     meow() {
+//         console.log("This is: ",this);
+//         console.log(`${this.name} say meow`);
+//     }
 
+// }
+
+// let meow2 = cat.meow();
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////TRY/CATCH BLOCKS////////////////////////////////////////////
+
+
+try {
+    console.log(hello.toUpperCase());
+} catch (e) {
+    console.log("Error");
 }
 
-let meow2 = cat.meow();
 
-
+function yell(msg){
+    try {
+        console.log(msg.toUpperCase().repeat(3));
+    } catch {
+        console.log ("please enter a string");y
+    }
+}
 
 
 
