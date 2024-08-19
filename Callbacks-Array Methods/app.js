@@ -213,5 +213,24 @@ const validUserNames = (username) => {
         return username.length < 10;
     });
 }
-validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']);
+// validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']);
+
+const nums = [80,90,77,75,78,89,98];
+
+let seventy = nums.every((m) => {
+    return m > 80;
+    //returns true if all the elements pass the test, else returns false if only elements
+    //fails to pass the condition.
+})
+
+let someof = nums.some(m => {
+    return m > 90;
+    //returns true if only one element greater then 90 can found
+})
+
+
+
+
+
+
 
