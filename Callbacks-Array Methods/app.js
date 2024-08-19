@@ -1,4 +1,4 @@
-const number = ["1","2","3","4","5","6","7","8","9","10"];
+// const number = ["1","2","3","4","5","6","7","8","9","10"];
 
 // function print(element){
 //     console.log(element)
@@ -110,35 +110,101 @@ let greet = person => {
 //     Math.floor(Math.random() * 6) +1
 // )
 
-let movies = [
-    {
-        title: "Amadeus",
-        score: 99
-    },
-    {
-        title: "Parasite",
-        score: 98
-    },
-    {
-        title: "Stand by Me",
-        score: 85
-    },
-    {
-        title: "Alien",
-        score: 90
-    }
+// let movies = [
+//     {
+//         title: "Amadeus",
+//         score: 99
+//     },
+//     {
+//         title: "Parasite",
+//         score: 98
+//     },
+//     {
+//         title: "Stand by Me",
+//         score: 85
+//     },
+//     {
+//         title: "Alien",
+//         score: 90
+//     }
 
-]
+// ]
 
 // let newMovies = movies.map(function (movie) {
 //     return `${movie.title} - ${movie.score/10}`
 // })
 
-let newMovies = movies.map(movie => (
-    `${movie.title} - ${movie.score/10}`
-))
+// let newMovies = movies.map(movie => (
+//     `${movie.title} - ${movie.score/10}`
+// ))
+
+/////////////////////////////////////FILTER////////////////////////////////////
+
+const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+// let forth = numbers.filter(n => {
+//     return n===4;
+// })
+
+let tenth = numbers.filter(n => {
+    return n < 10;
+})
 
 
+let movies = [
+    {
+        title: "Amadeus",
+        score: 99,
+        year: 1984
+    },
+    {
+        title: "Parasite",
+        score: 55,
+        year: 2019
+        
+    },
+    {
+        title: "Sharkando",
+        score: 60,
+        year: 2013
+        
+    },
+    {
+        title: "13 Going in to 30",
+        score: 98,
+        year: 2004
+        
+    },
+    {
+        title: "Jingle All the Way",
+        score: 69,
+        year: 1996
+    },
+    {
+        title: "Stand by Me",
+        score: 85,
+        year: 1986
+    },
+    {
+        title: "Alien",
+        score: 90,
+        year: 1979
+    }
 
+]
 
+let goodMovies = movies.filter((m) => {
+    return m.score > 80
+})
+let goodTitles = goodMovies.map((m) => {
+    return m.title;
+})
+
+let badMovies = movies.filter((m) => {
+    return m.score < 70
+})
+
+let recentMovies = movies.filter((m) => {
+    return m.year > 2000;
+})
 
