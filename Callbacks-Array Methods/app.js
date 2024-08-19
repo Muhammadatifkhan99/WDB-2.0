@@ -208,3 +208,10 @@ let recentMovies = movies.filter((m) => {
     return m.year > 2000;
 })
 
+const validUserNames = (username) => {
+    return username.filter(username => {
+        return username.length < 10;
+    });
+}
+validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']);
+
