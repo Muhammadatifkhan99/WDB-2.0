@@ -229,8 +229,41 @@ let someof = nums.some(m => {
 })
 
 
+//////////////////////////////////REDUCE///////////////////////////////////////
+
+const prices = [12.34,23.56,67.45,83.45];
+
+//total sum of the array
+// let total = 0;
+
+// for(let price of prices){
+//     total +=price;
+// }
+// console.log(total);
+
+const total = prices.reduce((total,price) => {
+    return total + price
+})
+
+const multiply = prices.reduce((total,price) => {
+    return total * price
+})
+
+let minimum = prices.reduce((min,price) => {
+    if(price > min){
+        return price
+    } else{
+        return min;
+    }
+})
 
 
-
+const highestRated = movies.reduce((bestM,currM) => {
+    if(bestM.score > currM.score){
+        return bestM;
+    } else {
+        return currM;
+    }
+})
 
 
