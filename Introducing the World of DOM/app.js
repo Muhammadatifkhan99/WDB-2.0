@@ -47,8 +47,10 @@
 
 
 //                  querySelectors
+//a new and all in one method to select the elements
 //
-//
+
+let allh1 = document.querySelector('h1');
 
 
 
