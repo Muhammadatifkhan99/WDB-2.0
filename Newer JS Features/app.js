@@ -140,12 +140,25 @@ const [gold,silver,...resti] = scores;
 //  const [] = arrayname;
 //
 //
+///////////////////////////////////////////////////////////////////////////////
 
 
+//////////////////////////DESTRUCTURING OBJECTS////////////////////////////////
+
+const user = {
+    firstName: "Harvay",
+    LastName: "Milk",
+    age: 34,
+    bio: "teacher"
+}
 
 
+console.log(user.firstName);
+console.log(user.LastName);
 
-
+function names({firstName,LastName}){
+    return `${firstName} ${LastName}`;
+}
 
 
 
