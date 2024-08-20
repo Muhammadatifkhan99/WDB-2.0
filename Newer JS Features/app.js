@@ -69,3 +69,40 @@ console.log(...nums)
 
 ///////////////////////////////////////////////////////////////////////////////
 
+
+
+const feline = { legs: 4, family : "Felidae"};
+const canine = {isFurry: true, family: "Caninae"};
+
+//adding a property to a single object 
+console.log({...feline, color: "black"})
+
+
+//creating a new object from these two objects
+const catDog = {...feline, ...canine}; //the family attribute of caniae will win...
+const catDog1 = {...canine, ...feline}; //the family attribute of feline will win...
+const catDog2 = {...canine, ...feline, family: "Steele"};
+
+
+//spreading an array into an object
+
+let num1 = [1,2,3,4,5,6,7,8,9];
+
+console.log({...num1})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
