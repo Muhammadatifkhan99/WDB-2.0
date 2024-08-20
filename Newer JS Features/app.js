@@ -90,8 +90,43 @@ let num1 = [1,2,3,4,5,6,7,8,9];
 
 console.log({...num1})
 
+/////////////////////////////////////////////////////////////////////////////////
 
 
+////////////////REST PARAMS////////////////////////////////////////////////////
+
+
+//The arguments objects...inside every function we have an array like object called 
+//the arugment object, its like an array but not an actual array because we can not 
+//implement pop() and push() methods on it.
+
+//not available in arrow functionss
+
+// function sum(){
+//     // console.log(arguments)
+//     return arguments.reduce((total,el) => total + el;)
+// }
+//we cannot add the arguments together using reduce becasue this method does not apply to it.
+//we need something to make an array out of them
+//this is where the REST PARAMS comes in...
+//REST collects all of the remaining arguments can put them in an actual array
+
+
+//its called REST because it collects the REST of the parameter....
+
+function sum(...nums){
+    return nums.reduce((total,el) => total + el);
+}
+
+
+function raceResults (gold,silver,...everyone){
+    console.log(`Gold medals goes to: ${gold}`);
+    console.log(`Silver medals goes to: ${silver}`);
+    console.log(`And thank to ${everyone}`);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
 
 
 
