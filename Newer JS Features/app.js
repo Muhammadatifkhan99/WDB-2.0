@@ -44,8 +44,28 @@ function greet2(person,msg = "hey there"){
 
 
 
+///////////////////////////////////////SPREAD SYNTAX IN JS////////////////////////////////////////
+
+//this does not works for the case if an array is passed to this function
+console.log(Math.max(12,3,4,5,6,5,456,33,78,));
+console.log(Math.max(1,4,56,7,3,4,546,87,43,0));
+
+let nums = [1,3,4,23,56,787676,234214123,87996];
+
+//We need to use the spread syntax in this case
+console.log(Math.max(nums));
+
+//The spread syntax is usefull here...the iterable is spread into a function call
+
+let max = Math.max(...nums);
+console.log(max);
+
+//Strings
+
+console.log("hello")
+console.log(..."hello")
+console.log(...nums)
+
+
 ///////////////////////////////////////////////////////////////////////////////
-
-
-
 
