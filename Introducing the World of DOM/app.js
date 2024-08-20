@@ -52,5 +52,26 @@
 
 let allh1 = document.querySelector('h1');
 
+// queryselector can be used to select by any CSS style we want
+// id, class , tag and much more
+//query selector just gives us the first match 
+
+document.querySelector("p:nth-of-type(2)")
 
 
+//querySelectorAll
+
+//same idea, but returns the collection of matching elements
+
+
+document.querySelectorAll("p");
+document.querySelectorAll("img");
+document.querySelectorAll("a");
+//CSS DECENDENT SELECTORS
+
+const links = document.querySelectorAll("p a");
+
+
+for(let link of links){
+    console.log(link.href);
+}
