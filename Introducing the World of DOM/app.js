@@ -85,7 +85,7 @@ const originHead = h1.innerText;
 //     heading.innerHTML = "<i>originHead</i>"
 // }
 
-const allLinks = document.querySelectorAll("a");
+const allLinksa = document.querySelectorAll("a");
 // for(let link of allLinks){
 //     link.innerText = "I AM A LINK";
 // }
@@ -102,3 +102,31 @@ const Eggimg = document.querySelectorAll('a');
 // eggImg.alt = 'chicken';
 
 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+//          Changing Styles
+//
+//
+const heading1 = document.querySelector('h1');
+
+heading1.style.color; //this will return an empy object
+
+//only works when the style/color is applied inline.
+
+// heading1.style.color = "green"
+// heading1.style.fontSize = '3em';
+
+
+const allLinks = document.querySelectorAll('a');
+
+for(let link of allLinks){
+    link.style.color = 'blue';
+    link.style.textDecorationColor = "magenta";
+    link.style.textDecorationStyle = "wavy";
+}
+
+//we can only get the inline styles of the HTML, to get the style sheet styles we need to use the following
+
+window.getComputedStyle(allLinks);
