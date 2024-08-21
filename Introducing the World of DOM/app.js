@@ -50,50 +50,50 @@
 //a new and all in one method to select the elements
 //
 
-let allh1 = document.querySelector('h1');
+// let allh1 = document.querySelector('h1');
 
-// queryselector can be used to select by any CSS style we want
-// id, class , tag and much more
-//query selector just gives us the first match 
+// // queryselector can be used to select by any CSS style we want
+// // id, class , tag and much more
+// //query selector just gives us the first match 
 
-document.querySelector("p:nth-of-type(2)")
-
-
-//querySelectorAll
-
-//same idea, but returns the collection of matching elements
+// document.querySelector("p:nth-of-type(2)")
 
 
-document.querySelectorAll("p");
-document.querySelectorAll("img");
-document.querySelectorAll("a");
-//CSS DECENDENT SELECTORS
+// //querySelectorAll
 
-const links = document.querySelectorAll("p a");
+// //same idea, but returns the collection of matching elements
 
 
-// for(let link of links){
-//     console.log(link.href);
-// }
+// document.querySelectorAll("p");
+// document.querySelectorAll("img");
+// document.querySelectorAll("a");
+// //CSS DECENDENT SELECTORS
 
-const h1 = document.querySelector("h1");
-
-const originHead = h1.innerText;
-//  h1.innerHTML = originHead;
-// h1.innerText = "nothing to say now";
-// for(let heading of h1){
-//     heading.innerHTML = "<i>originHead</i>"
-// }
-
-const allLinksa = document.querySelectorAll("a");
-// for(let link of allLinks){
-//     link.innerText = "I AM A LINK";
-// }
+// const links = document.querySelectorAll("p a");
 
 
-const input =  document.querySelector("input[type = 'text']");
+// // for(let link of links){
+// //     console.log(link.href);
+// // }
 
-const Eggimg = document.querySelectorAll('a');
+// const h1 = document.querySelector("h1");
+
+// const originHead = h1.innerText;
+// //  h1.innerHTML = originHead;
+// // h1.innerText = "nothing to say now";
+// // for(let heading of h1){
+// //     heading.innerHTML = "<i>originHead</i>"
+// // }
+
+// const allLinksa = document.querySelectorAll("a");
+// // for(let link of allLinks){
+// //     link.innerText = "I AM A LINK";
+// // }
+
+
+// const input =  document.querySelector("input[type = 'text']");
+
+// const Eggimg = document.querySelectorAll('a');
 
 
 
@@ -109,24 +109,58 @@ const Eggimg = document.querySelectorAll('a');
 //          Changing Styles
 //
 //
-const heading1 = document.querySelector('h1');
+// const heading1 = document.querySelector('h1');
 
-heading1.style.color; //this will return an empy object
+// heading1.style.color; //this will return an empy object
 
-//only works when the style/color is applied inline.
+// //only works when the style/color is applied inline.
 
-// heading1.style.color = "green"
-// heading1.style.fontSize = '3em';
+// // heading1.style.color = "green"
+// // heading1.style.fontSize = '3em';
 
 
-const allLinks = document.querySelectorAll('a');
+// const allLinks = document.querySelectorAll('a');
 
-for(let link of allLinks){
-    link.style.color = 'blue';
-    link.style.textDecorationColor = "magenta";
-    link.style.textDecorationStyle = "wavy";
-}
+// for(let link of allLinks){
+//     link.style.color = 'blue';
+//     link.style.textDecorationColor = "magenta";
+//     link.style.textDecorationStyle = "wavy";
+// }
 
-//we can only get the inline styles of the HTML, to get the style sheet styles we need to use the following
+// //we can only get the inline styles of the HTML, to get the style sheet styles we need to use the following
 
-window.getComputedStyle(allLinks);
+// window.getComputedStyle(allLinks);
+
+
+//classList
+//applying a class via a javascript
+
+// const h2 = document.querySelector('h2');
+
+// console.log(h2.setAttribute('class'));
+
+const head2 = document.querySelector('h2');
+
+// head2.getAttribute('class');
+// head2.setAttribute('class' , 'purple');// Assigning class purple to the h2 and removing the old class 
+// head2.setAttribute('class', 'border'); //this will remove the old class from it
+
+//assigning both classes to the html element
+
+// head2.setAttribute('class', `${purple} border`);// can be done using the class list
+
+//classlist
+
+// head2.classList;
+
+head2.classList.add('purple');
+head2.classList.add('border');
+head2.classList.remove('border');
+head2.classList.contains('border'); //returns true/false value
+head2.classList.toggle('border'); //on offs a class from a specific element
+
+
+
+
+
+
