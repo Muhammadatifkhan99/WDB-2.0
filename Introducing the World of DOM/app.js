@@ -91,6 +91,14 @@ const allLinks = document.querySelectorAll("a");
 // }
 
 
+const input =  document.querySelector("input[type = 'text']");
 
+const Eggimg = document.querySelectorAll('a');
+
+
+
+// const eggImg = document.querySelector('img');
+// eggImg.src = 'https://devsprouthosting.com/images/chicken.jpg';
+// eggImg.alt = 'chicken';
 
 
