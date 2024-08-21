@@ -158,6 +158,26 @@ head2.classList.add('border');
 head2.classList.remove('border');
 head2.classList.contains('border'); //returns true/false value
 head2.classList.toggle('border'); //on offs a class from a specific element
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Traversing the Parent Children elements
+
+const boldelement = document.querySelector('b');
+
+boldelement.parentElement;
+boldelement.parentElement.parentElement.parentElement;
+
+
+const paragraph = boldelement.parentElement;
+
+
+const squareimg = document.querySelector('.square');
+squareimg.parentElement;
+squareimg.nextSibling;
+squareimg.previousSibling;
+squareimg.nextElementSibling;
+squareimg.previousElementSibling;
 
 
 
