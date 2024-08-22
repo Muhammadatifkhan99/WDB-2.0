@@ -25,6 +25,29 @@
 //=======================================================================================
 //=======================================================================================
 
+const btn3 = document.querySelector('#v3');
+
+btn3.addEventListener('click', function () {
+    alert("Clicked");
+    console.log("You clicked Me");
+})
+
+function shout () {
+    console.log("SHOUT");
+}
+function twist() {
+    console.log("Twist");
+}
+
+const tasbutton = document.querySelector("#tas");
+
+// tasbutton.onclick = shout;
+// tasbutton.onclick = twist;
+
+tasbutton.addEventListener('click',twist);
+tasbutton.addEventListener('click',shout);
+
+
 
 
 
