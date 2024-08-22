@@ -139,7 +139,7 @@
 
 // console.log(h2.setAttribute('class'));
 
-const head2 = document.querySelector('h2');
+// const head2 = document.querySelector('h2');
 
 // head2.getAttribute('class');
 // head2.setAttribute('class' , 'purple');// Assigning class purple to the h2 and removing the old class 
@@ -153,34 +153,98 @@ const head2 = document.querySelector('h2');
 
 // head2.classList;
 
-head2.classList.add('purple');
-head2.classList.add('border');
-head2.classList.remove('border');
-head2.classList.contains('border'); //returns true/false value
-head2.classList.toggle('border'); //on offs a class from a specific element
+// head2.classList.add('purple');
+// head2.classList.add('border');
+// head2.classList.remove('border');
+// head2.classList.contains('border'); //returns true/false value
+// head2.classList.toggle('border'); //on offs a class from a specific element
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //Traversing the Parent Children elements
 
-const boldelement = document.querySelector('b');
+// const boldelement = document.querySelector('b');
 
-boldelement.parentElement;
-boldelement.parentElement.parentElement.parentElement;
-
-
-const paragraph = boldelement.parentElement;
+// boldelement.parentElement;
+// boldelement.parentElement.parentElement.parentElement;
 
 
-const squareimg = document.querySelector('.square');
-squareimg.parentElement;
-squareimg.nextSibling;
-squareimg.previousSibling;
-squareimg.nextElementSibling;
-squareimg.previousElementSibling;
+// const paragraph = boldelement.parentElement;
 
 
+// const squareimg = document.querySelector('.square');
+// squareimg.parentElement;
+// squareimg.nextSibling;
+// squareimg.previousSibling;
+// squareimg.nextElementSibling;
+// squareimg.previousElementSibling;
+
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
+//creating elements and appending it to the body
 
 
+// const newImg = document.createElement('img'); //makes an images//its an object
+// // console.dir(newImg);
+// newImg.src = 'https://images.unsplash.com/photo-1724094505377-ac01c7813010?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+
+//appending the element to the document
+// document.body.appendChild(newImg); //append this image as the last child of the body.....
+
+// newImg.classList.add('square');
+
+// ///make an h3 
+
+// const newh3 = document.createElement('h3');
+
+// newh3.innerText = "Welcome to Zootopia";
+// document.body.appendChild(newh3);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//          append(); more flexible, insert more than one thing at a time 
+//
+//
+
+// const paragraph1 = document.querySelector('p');
+
+// paragraph1.append("Hey I am a new text here");
+//we can append more than one thing..
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///             prepend():::insert things as the first child of something
+///
+///
+
+// const newB = document.createElement('b');
+// newB.append("Hey!!!!!!!!!!!!!!!!!!");
+ 
+// paragraph1.prepend(newB);
+
+///////////////////////////////////////////////////////////////////////////////
+
+//  insertAdjacentElements
+// insert it aferends(when the target element ends) or before( before the target elements starts)
+//
+
+
+const h2 = document.createElement("h2");
+
+h2.append("Are Addorable checkens");
+
+const h1 = document.querySelector("h1");
+
+h1.insertAdjacentElement("afterend",h2);
+
+h1.nextElementSibling
+
+
+//////////////////////////////////////////////
+
+//  after()
+
+const h3 = document.createElement('h3');
+h3.append("I am an h3");
+h1.after(h3);
