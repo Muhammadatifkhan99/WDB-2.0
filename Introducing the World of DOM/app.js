@@ -248,3 +248,22 @@ h1.nextElementSibling
 const h3 = document.createElement('h3');
 h3.append("I am an h3");
 h1.after(h3);
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+//Removing Element
+//child elements
+// removeChild() ---> requires us to call the method on the parent and remove the child element......
+
+const firstLi = document.querySelector('li');
+const ul = firstLi.parentElement
+ul.removeChild(firstLi);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/// remove()....we call this method on the actual thing we want to remove
+const img = document.querySelector("img");
+img.remove();
+
+
