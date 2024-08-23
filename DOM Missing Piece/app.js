@@ -25,40 +25,55 @@
 //=======================================================================================
 //=======================================================================================
 
-const btn3 = document.querySelector('#v3');
+// const btn3 = document.querySelector('#v3');
 
-btn3.addEventListener('click', function () {
-    alert("Clicked");
-    console.log("You clicked Me");
-})
+// btn3.addEventListener('click', function () {
+//     alert("Clicked");
+//     console.log("You clicked Me");
+// })
 
-function shout () {
-    console.log("SHOUT");
-}
-function twist() {
-    console.log("Twist");
-}
+// function shout () {
+//     console.log("SHOUT");
+// }
+// function twist() {
+//     console.log("Twist");
+// }
 
-const tasbutton = document.querySelector("#tas");
+// const tasbutton = document.querySelector("#tas");
 
 // tasbutton.onclick = shout;
 // tasbutton.onclick = twist;
 
-tasbutton.addEventListener('click',twist);
-tasbutton.addEventListener('click',shout);
-
-
-
-
-
-
+// tasbutton.addEventListener('click',twist);
+// tasbutton.addEventListener('click',shout);
 
 //=======================================================================================
 //=======================================================================================
-//                        .....addEventListeners.....
+//                        .....EVENTS and the keyword this.....
 //=======================================================================================
 //=======================================================================================
+const makeRandColor = () => {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r}, ${g}, ${b})`
+}
+const buttons = document.querySelectorAll('button');
 
+for(let button of buttons){
+    button.addEventListener('click', () => {
+    button.style.backgroundColor = makeRandColor();
+    button.style.color = makeRandColor();
+    })
+}
+const h1 = document.querySelectorAll('h1')
+
+for (let h of h1){
+    h.addEventListener('click', () => {
+        h.style.backgroundColor = makeRandColor();
+        h.style.color = makeRandColor();
+    })
+}
 
 
 //=======================================================================================
