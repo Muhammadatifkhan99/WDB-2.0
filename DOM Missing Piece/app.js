@@ -60,12 +60,22 @@ const makeRandColor = () => {
 }
 const buttons = document.querySelectorAll('button');
 
-for(let button of buttons){
-    button.addEventListener('click', () => {
-    button.style.backgroundColor = makeRandColor();
-    button.style.color = makeRandColor();
-    })
+// for(let button of buttons){
+//     button.addEventListener('click', () => {
+//     button.style.backgroundColor = makeRandColor();
+//     button.style.color = makeRandColor();
+//     })
+// }
+for (let button of buttons) {
+    button.addEventListener('click', function handleClick() {
+        button.style.backgroundColor = makeRandColor();
+        button.style.color = makeRandColor();
+        
+        // Remove the event listener after the first click
+        button.removeEventListener('click', handleClick);
+    });
 }
+
 const h1 = document.querySelectorAll('h1')
 
 for (let h of h1){
