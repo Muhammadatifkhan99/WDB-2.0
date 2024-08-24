@@ -132,46 +132,46 @@
 //event the coordinates of that object are displayed to the user...
 //client x andn client y with x and y cooridnates
 //with the keyboard events we frequently rely on this because we want to know which key was pressed...
-const btns = document.querySelector('button');
+// const btns = document.querySelector('button');
 
-// btns.addEventListener('click', function() {
-//     alert("do make me angry"
-//     )
+// // btns.addEventListener('click', function() {
+// //     alert("do make me angry"
+// //     )
+// // })
+
+// //capturing the event object
+// btns.addEventListener('click', function(evt) {
+//     console.log(evt);
 // })
 
-//capturing the event object
-btns.addEventListener('click', function(evt) {
-    console.log(evt);
-})
+// const inputs = document.querySelector('input');
+// //listening for the keyup and keydown events on the entire window
+// // inputs.addEventListener('keydown', function (e) {
+// //     console.log(e.key);
+// //     console.log(e.code);
+// // })
 
-const inputs = document.querySelector('input');
-//listening for the keyup and keydown events on the entire window
-// inputs.addEventListener('keydown', function (e) {
-//     console.log(e.key);
-//     console.log(e.code);
+
+// //keydown anywhere on the window
+
+// window.addEventListener('keydown', function(e){
+//     switch(e.code) {
+//         case 'ArrowUp':
+//             console.log("UP!");
+//             break;
+//         case 'ArrowDown':
+//             console.log("DOWN!");
+//             break;
+//         case 'ArrowLeft':
+//             console.log("LEFT");
+//             break;
+//         case 'ArrowRight':
+//             console.log("RIGHT");
+//             break;
+//         default:
+//             console.log("IGNORED");
+//     }
 // })
-
-
-//keydown anywhere on the window
-
-window.addEventListener('keydown', function(e){
-    switch(e.code) {
-        case 'ArrowUp':
-            console.log("UP!");
-            break;
-        case 'ArrowDown':
-            console.log("DOWN!");
-            break;
-        case 'ArrowLeft':
-            console.log("LEFT");
-            break;
-        case 'ArrowRight':
-            console.log("RIGHT");
-            break;
-        default:
-            console.log("IGNORED");
-    }
-})
 
 
 
@@ -182,9 +182,11 @@ window.addEventListener('keydown', function(e){
 
 //=======================================================================================
 //=======================================================================================
-//                        .....addEventListeners.....
+//                        .....FORMS EVENTS.....
 //=======================================================================================
 //=======================================================================================
+
+
 
 
 //=======================================================================================
