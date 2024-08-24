@@ -185,7 +185,12 @@
 //                        .....FORMS EVENTS.....
 //=======================================================================================
 //=======================================================================================
+const form = document.getElementById('shelterForm');
 
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log("SUBMITTED");
+})
 
 
 
