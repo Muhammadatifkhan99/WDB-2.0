@@ -52,30 +52,29 @@
 //                        .....EVENTS and the keyword this.....
 //=======================================================================================
 //=======================================================================================
-let newColor= "";
-const makeRandColor = () => {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
-    newColor = `rgb(${r}, ${g}, ${b})`;
-    return newColor;
-}
-const buttons = document.querySelectorAll("button");
+// let newColor= "";
+// const makeRandColor = () => {
+//     const r = Math.floor(Math.random() * 255);
+//     const g = Math.floor(Math.random() * 255);
+//     const b = Math.floor(Math.random() * 255);
+//     newColor = `rgb(${r}, ${g}, ${b})`;
+//     return newColor;
+// }
+// const buttons = document.querySelectorAll("button");
 
-for (let button of buttons){
-    button.addEventListener('click', function () {
-        this.style.backgroundColor = makeRandColor();
-        this.style.color = makeRandColor();
-    })
-}
+// for (let button of buttons){
+//     button.addEventListener('click',colorize)
+// }
 
-const h1s = document.querySelectorAll('h1');
-for(let h1 of h1s){
-    h1.addEventListener("click", function(){
-    this.style.backgroundColor = makeRandColor();
-        this.style.color = makeRandColor(); 
-    })
-}
+// const h1s = document.querySelectorAll('h1');
+// for(let h1 of h1s){
+//     h1.addEventListener("click",colorize)
+// }
+
+// function colorize () {
+//     this.style.backgroundColor = makeRandColor();
+//     this.style.color = makeRandColor(); 
+// }
 // function getContrastingColor(r, g, b) {
 //     // Formula to calculate brightness based on the RGB values
 //     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
@@ -120,23 +119,40 @@ for(let h1 of h1s){
 //         h.style.color = makeRandColor();
 //     })
 // }
-//========================================================================================
-
-
-
-
-
-
-
-
-
-
 //=======================================================================================
 //=======================================================================================
-//                        .....addEventListeners.....
+//                        .....KEYBOARD EVENTS.....
 //=======================================================================================
 //=======================================================================================
 
+
+                            //Event Object
+//the event object is something that is automatically passed into the callback function in the addeventlistener
+//contain the information about the event that occured
+//event the coordinates of that object are displayed to the user...
+//client x andn client y with x and y cooridnates
+//with the keyboard events we frequently rely on this because we want to know which key was pressed...
+const btns = document.querySelector('button');
+
+// btns.addEventListener('click', function() {
+//     alert("do make me angry"
+//     )
+// })
+
+//capturing the event object
+btns.addEventListener('click', function(evt) {
+    console.log(evt);
+})
+
+const inputs = document.querySelector('input');
+//listening for the keyup and keydown events on the entire window
+inputs.addEventListener('keydown', function (e) {
+    console.log(e.key);
+    console.log(e.code);
+})
+// inputs.addEventListener('keyup', function () {
+//     console.log("Key up");
+// })
 
 //=======================================================================================
 //=======================================================================================
