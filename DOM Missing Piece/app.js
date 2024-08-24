@@ -60,50 +60,75 @@ const makeRandColor = () => {
     newColor = `rgb(${r}, ${g}, ${b})`;
     return newColor;
 }
-function getContrastingColor(r, g, b) {
-    // Formula to calculate brightness based on the RGB values
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    return brightness > 125 ? 'black' : 'white'; // If bright, use black text; if dark, use white text
-}
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll("button");
 
-// // for(let button of buttons){
-// //     button.addEventListener('click', () => {
-// //     button.style.backgroundColor = makeRandColor();
-// //     button.style.color = makeRandColor();
-// //     })
-// // }
-for (let button of buttons) {
-    button.addEventListener('click', () => {
-        const newColor = makeRandColor();
-        // Get the RGB values of the new color
-        const [r, g, b] = newColor.match(/\d+/g).map(Number);
-
-        // Set the background color of the button
-        button.style.backgroundColor = newColor;
-        
-        // Set a contrasting color for the text to make it visible
-        button.style.color = getContrastingColor(r, g, b);
-        
-        // Change the button's text to display the RGB value of the background color
-        button.textContent = newColor;
-    // button.addEventListener('click', function handleClick() {
-    //     button.style.backgroundColor = makeRandColor();
-    //     button.style.color = makeRandColor();
-    //     button.textContent = newColor;
-    //     // Remove the event listener after the first click
-    //     button.removeEventListener('click', handleClick);
- });
-}
-
-const h1 = document.querySelectorAll('h1')
-
-for (let h of h1){
-    h.addEventListener('click', () => {
-        h.style.backgroundColor = makeRandColor();
-        h.style.color = makeRandColor();
+for (let button of buttons){
+    button.addEventListener('click', function () {
+        this.style.backgroundColor = makeRandColor();
+        this.style.color = makeRandColor();
     })
 }
+
+const h1s = document.querySelectorAll('h1');
+for(let h1 of h1s){
+    h1.addEventListener("click", function(){
+    this.style.backgroundColor = makeRandColor();
+        this.style.color = makeRandColor(); 
+    })
+}
+// function getContrastingColor(r, g, b) {
+//     // Formula to calculate brightness based on the RGB values
+//     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+//     return brightness > 125 ? 'black' : 'white'; // If bright, use black text; if dark, use white text
+// }
+// const buttons = document.querySelectorAll('button');
+
+// // // for(let button of buttons){
+// // //     button.addEventListener('click', () => {
+// // //     button.style.backgroundColor = makeRandColor();
+// // //     button.style.color = makeRandColor();
+// // //     })
+// // // }
+// for (let button of buttons) {
+//     button.addEventListener('click', () => {
+//         const newColor = makeRandColor();
+//         // Get the RGB values of the new color
+//         const [r, g, b] = newColor.match(/\d+/g).map(Number);
+
+//         // Set the background color of the button
+//         button.style.backgroundColor = newColor;
+        
+//         // Set a contrasting color for the text to make it visible
+//         button.style.color = getContrastingColor(r, g, b);
+        
+//         // Change the button's text to display the RGB value of the background color
+//         button.textContent = newColor;
+//     // button.addEventListener('click', function handleClick() {
+//     //     button.style.backgroundColor = makeRandColor();
+//     //     button.style.color = makeRandColor();
+//     //     button.textContent = newColor;
+//     //     // Remove the event listener after the first click
+//     //     button.removeEventListener('click', handleClick);
+//  });
+// }
+
+// const h1 = document.querySelectorAll('h1')
+
+// for (let h of h1){
+//     h.addEventListener('click', () => {
+//         h.style.backgroundColor = makeRandColor();
+//         h.style.color = makeRandColor();
+//     })
+// }
+//========================================================================================
+
+
+
+
+
+
+
+
 
 
 //=======================================================================================
