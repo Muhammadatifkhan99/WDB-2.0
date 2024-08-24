@@ -146,10 +146,36 @@ btns.addEventListener('click', function(evt) {
 
 const inputs = document.querySelector('input');
 //listening for the keyup and keydown events on the entire window
-inputs.addEventListener('keydown', function (e) {
-    console.log(e.key);
-    console.log(e.code);
+// inputs.addEventListener('keydown', function (e) {
+//     console.log(e.key);
+//     console.log(e.code);
+// })
+
+
+//keydown anywhere on the window
+
+window.addEventListener('keydown', function(e){
+    switch(e.code) {
+        case 'ArrowUp':
+            console.log("UP!");
+            break;
+        case 'ArrowDown':
+            console.log("DOWN!");
+            break;
+        case 'ArrowLeft':
+            console.log("LEFT");
+            break;
+        case 'ArrowRight':
+            console.log("RIGHT");
+            break;
+        default:
+            console.log("IGNORED");
+    }
 })
+
+
+
+
 // inputs.addEventListener('keyup', function () {
 //     console.log("Key up");
 // })
