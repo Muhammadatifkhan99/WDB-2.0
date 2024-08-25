@@ -196,27 +196,50 @@
 //                        .....Practive with forms events.....
 //=======================================================================================
 //=======================================================================================
-const form = document.getElementById('shelterForm');
-const input = document.querySelector('#catNames');
-const list = document.querySelector('#cats');
+// const form = document.getElementById('shelterForm');
+// const input = document.querySelector('#catNames');
+// const list = document.querySelector('#cats');
 
-form.addEventListener('submit', function(e){
+// form.addEventListener('submit', function(e){
+//     e.preventDefault();
+//     const catName = input.value;
+//     const newLi = document.createElement('Li');
+//     newLi.innerText = catName;
+//     console.log(newLi);
+//     list.append(newLi);
+//     input.value = "";
+// })
+
+
+//=======================================================================================
+//=======================================================================================
+//                        .....ORIGINAL VERSION:::FORMS EVENTS.....
+//=======================================================================================
+//=======================================================================================
+
+const tweetForm = document.querySelector('#tweetForm');
+const tweetContainer = document.querySelector('#tweets');
+
+tweetForm.addEventListener("submit", function (e){
     e.preventDefault();
-    const catName = input.value;
-    const newLi = document.createElement('Li');
-    newLi.innerText = catName;
-    console.log(newLi);
-    list.append(newLi);
-    input.value = "";
+    // const userInput =  document.querySelectorAll('input')[0];
+    // const tweetInput =  document.querySelectorAll('input')[1];
+    const usernameInput = tweetForm.elements.username;
+    const tweetInput = tweetForm.elements.tweet;
+    // console.log(userInput.value, tweetInput.value);
+    addTweet(usernameInput.value, tweetInput.value);
+    usernameInput.value = '';
+    tweetInput.value = '';
 })
 
-
-//=======================================================================================
-//=======================================================================================
-//                        .....Practive with forms events.....
-//=======================================================================================
-//=======================================================================================
-
+const addTweet = (username, tweet) => {
+    const newTweet = document.createElement('li');
+    const bTag = document.createElement('b');
+    bTag.append(username);
+    newTweet.append(bTag);
+    newTweet.append(`- ${tweet}`);
+    tweetContainer.append(newTweet);
+}
 
 //=======================================================================================
 //=======================================================================================
