@@ -217,35 +217,47 @@
 //=======================================================================================
 //=======================================================================================
 
-const tweetForm = document.querySelector('#tweetForm');
-const tweetContainer = document.querySelector('#tweets');
+// const tweetForm = document.querySelector('#tweetForm');
+// const tweetContainer = document.querySelector('#tweets');
 
-tweetForm.addEventListener("submit", function (e){
-    e.preventDefault();
-    // const userInput =  document.querySelectorAll('input')[0];
-    // const tweetInput =  document.querySelectorAll('input')[1];
-    const usernameInput = tweetForm.elements.username;
-    const tweetInput = tweetForm.elements.tweet;
-    // console.log(userInput.value, tweetInput.value);
-    addTweet(usernameInput.value, tweetInput.value);
-    usernameInput.value = '';
-    tweetInput.value = '';
-})
+// tweetForm.addEventListener("submit", function (e){
+//     e.preventDefault();
+//     // const userInput =  document.querySelectorAll('input')[0];
+//     // const tweetInput =  document.querySelectorAll('input')[1];
+//     const usernameInput = tweetForm.elements.username;
+//     const tweetInput = tweetForm.elements.tweet;
+//     // console.log(userInput.value, tweetInput.value);
+//     addTweet(usernameInput.value, tweetInput.value);
+//     usernameInput.value = '';
+//     tweetInput.value = '';
+// })
 
-const addTweet = (username, tweet) => {
-    const newTweet = document.createElement('li');
-    const bTag = document.createElement('b');
-    bTag.append(username);
-    newTweet.append(bTag);
-    newTweet.append(`- ${tweet}`);
-    tweetContainer.append(newTweet);
-}
+// const addTweet = (username, tweet) => {
+//     const newTweet = document.createElement('li');
+//     const bTag = document.createElement('b');
+//     bTag.append(username);
+//     newTweet.append(bTag);
+//     newTweet.append(`- ${tweet}`);
+//     tweetContainer.append(newTweet);
+// }
 
 //=======================================================================================
 //=======================================================================================
-//                        .....Practive with forms events.....
+//                        ..... INPUT CHANGE EVENTS.....
 //=======================================================================================
 //=======================================================================================
+
+const change = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+
+// change.addEventListener('change', function () {
+//     console.log("Changing Event");
+// })
+
+change.addEventListener('input', function (e) {
+    h1.innerText = change.value;
+});
 
 
 //=======================================================================================
