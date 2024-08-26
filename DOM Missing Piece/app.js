@@ -265,35 +265,68 @@
 //                        .....EVENT BUBBLING.....
 //=======================================================================================
 //=======================================================================================
-const button = document.querySelector('#ChangeColor');
-const container = document.querySelector('#container');
+// const button = document.querySelector('#ChangeColor');
+// const container = document.querySelector('#container');
 
-const makeRandColor = () => {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
-    newColor = `rgb(${r}, ${g}, ${b})`;
-    return newColor;
+// const makeRandColor = () => {
+//     const r = Math.floor(Math.random() * 255);
+//     const g = Math.floor(Math.random() * 255);
+//     const b = Math.floor(Math.random() * 255);
+//     newColor = `rgb(${r}, ${g}, ${b})`;
+//     return newColor;
+// }
+
+// button.addEventListener('click', function (e){
+//     container.style.backgroundColor = makeRandColor();
+//     e.stopPropagation();
+// });
+// container.addEventListener('click',function() {
+//     container.classList.toggle('hide');
+// }
+// )
+//=======================================================================================
+//=======================================================================================
+//                        .....EVENT DELIGATION.....
+//=======================================================================================
+//=======================================================================================
+
+const tweetForm = document.querySelector('#tweetForm');
+const tweetContainer = document.querySelector('#tweets');
+
+// const lis = document.querySelectorAll('li');
+
+// for(let li of lis){
+//     li.addEventListener('click',function(){
+//         li.remove();
+//     })
+// }
+
+tweetForm.addEventListener("submit", function (e){
+    e.preventDefault();
+    // const userInput =  document.querySelectorAll('input')[0];
+    // const tweetInput =  document.querySelectorAll('input')[1];
+    const usernameInput = tweetForm.elements.username;
+    const tweetInput = tweetForm.elements.tweet;
+    // console.log(userInput.value, tweetInput.value);
+    addTweet(usernameInput.value, tweetInput.value);
+    usernameInput.value = '';
+    tweetInput.value = '';
+})
+
+const addTweet = (username, tweet) => {
+    const newTweet = document.createElement('li');
+    const bTag = document.createElement('b');
+    bTag.append(username);
+    newTweet.append(bTag);
+    newTweet.append(`- ${tweet}`);
+    tweetContainer.append(newTweet);
 }
 
-button.addEventListener('click', function (e){
-    container.style.backgroundColor = makeRandColor();
-    e.stopPropagation();
-});
-container.addEventListener('click',function() {
-    container.classList.toggle('hide');
-}
-)
-
-
-
-//=======================================================================================
-//=======================================================================================
-//                        .....EVENT BUBBLING.....
-//=======================================================================================
-//=======================================================================================
-
-
+tweetContainer.addEventListener('click', function(e){
+    e.target.nodeName === "LI" && e.target.remove();
+    // console.log('click');
+    // console.log(e);
+})
 
 //=======================================================================================
 //=======================================================================================
