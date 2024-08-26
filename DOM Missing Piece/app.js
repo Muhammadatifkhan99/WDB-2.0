@@ -247,21 +247,55 @@
 //=======================================================================================
 //=======================================================================================
 
-const change = document.querySelector('input');
-const h1 = document.querySelector('h1');
+// const change = document.querySelector('input');
+// const h1 = document.querySelector('h1');
 
 
-// change.addEventListener('change', function () {
-//     console.log("Changing Event");
-// })
+// // change.addEventListener('change', function () {
+// //     console.log("Changing Event");
+// // })
 
-change.addEventListener('input', function (e) {
-    h1.innerText = change.value;
+// change.addEventListener('input', function (e) {
+//     h1.innerText = change.value;
+// });
+
+
+//=======================================================================================
+//=======================================================================================
+//                        .....EVENT BUBBLING.....
+//=======================================================================================
+//=======================================================================================
+const button = document.querySelector('#ChangeColor');
+const container = document.querySelector('#container');
+
+const makeRandColor = () => {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    newColor = `rgb(${r}, ${g}, ${b})`;
+    return newColor;
+}
+
+button.addEventListener('click', function (e){
+    container.style.backgroundColor = makeRandColor();
+    e.stopPropagation();
 });
+container.addEventListener('click',function() {
+    container.classList.toggle('hide');
+}
+)
+
 
 
 //=======================================================================================
 //=======================================================================================
-//                        .....Practive with forms events.....
+//                        .....EVENT BUBBLING.....
+//=======================================================================================
+//=======================================================================================
+
+
+
+//=======================================================================================
+//=======================================================================================
 //=======================================================================================
 //=======================================================================================

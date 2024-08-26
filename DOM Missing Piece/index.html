@@ -13,12 +13,28 @@
             margin: 20px;
         }
     </style> -->
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <section onclick="alert('section clicked')">
+        <p onclick="alert('paragraph clicked')">
+            I am a paragraph:
+            <button onclick="alert('Button Clicked')">Click</button>
+        </p>
+    </section>
 
-    <h1>Type Below: </h1>
+    <div id="container">
+        Click to Hide
+        <button id="ChangeColor">Change Color</button>
+    </div>
 
-    <input type="text">
+    <!-- <h1>Type Below: </h1>
+
+    <input type="text"> -->
 
     <!-- <h1>Forms Events</h1>
 
