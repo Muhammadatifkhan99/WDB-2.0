@@ -121,9 +121,43 @@
 //                         ....fake requests using promises....
 //=======================================================================================
 
+// a promise an eventual guarantee of either an error or a value
+// we attach callbacks to the promise instead of passing them as a functions
+//
 
+const fakeRequestPromise = (url) => {
+    return new Promise((resolve, reject) => {
+        const delay = Math.floor(Math.random() * 4500) + 500;
+        setTimeout(() => {
+            if(delay > 4000){
+                reject ('Connection Timeout');
+            } else {
+                resolve (`Here is your fake data from ${url}`);
+            }
+        }, delay);
+    })
+}
 
-
+fakeRequestPromise('yelp.com/api/coffee/page1')
+    .then(() => {
+    console.log("IT WORKED");
+    fakeRequestPromise('yelp.com/api/coffee/page2')
+    .then(() => {
+        console.log("IT WORKED AGAIN (2ND TIMES)")
+        fakeRequestPromise('yelp.com/api/coffee/page3')
+        .then(() => {
+            console.log("IT WORKED AGAIN (3RD TIME)");
+        })
+        .catch(() => {
+            console.log("OH NO ERROR (page3)");
+        })
+    }).catch(() => {
+        console.log("OH No ERROR (page2)")
+    })
+})
+    .catch(() => {
+    console.log("OH ON...ERROR (page1)")
+})
 
 
 
