@@ -62,35 +62,71 @@
 //     },1000)
 // },1000)
 
-const delayedColorChange = (newColor, Delay, doNext) =>{
-    setTimeout(() => {
-        document.body.style.backgroundColor = newColor;
-        doNext();
-    }, Delay);
-}
+// const delayedColorChange = (newColor, Delay, doNext) =>{
+//     setTimeout(() => {
+//         document.body.style.backgroundColor = newColor;
+//         doNext();
+//     }, Delay);
+// }
 
-delayedColorChange('red',2000, () => {
-    delayedColorChange('orange',1000, () => {
-        delayedColorChange('yellow',1000, () =>{
-            delayedColorChange('green',1000,() => {
-                delayedColorChange('blue',1000, () =>{
+// delayedColorChange('red',2000, () => {
+//     delayedColorChange('orange',1000, () => {
+//         delayedColorChange('yellow',1000, () =>{
+//             delayedColorChange('green',1000,() => {
+//                 delayedColorChange('blue',1000, () =>{
                     
-                })
-            })
-        })
-    })
-});
-
-
+//                 })
+//             })
+//         })
+//     })
+// });
 
 //=======================================================================================
-//                         ....WEB APIS....
+//                         ....fake request using callbacks....
+//=======================================================================================
+// const fakeRequestCallback = (url, success, failure) => {
+//     const delay = Math.floor(Math.random() * 4500) +500;
+//     setTimeout(() => {
+//         if(delay >= 4000){
+//             failure('Connection Timeout');
+//         } else {
+//             success(`Here is your fake data from ${url}`)
+//         }
+//     },delay)
+// }
+//
+//At each stage if any of the callback does not worked it will not proceed further...
+//This is like that if the first request failed it will never try to make the other requests
+//
+// fakeRequestCallback('books.com/page1', (response) => {
+//     console.log("IT WORKED");
+//     console.log(response);
+//     fakeRequestCallback('books.com/page2', (response) => {
+//         console.log("IT WORKED AGAIN");
+//         console.log(response);
+//         fakeRequestCallback('books.com/page3', (response) => {
+//             console.log("IT WORKED AGAIN for the 3rd time");
+//             console.log(response)
+//         }, (err) => {
+//             console.log("ERROR (3rd Req)");
+//         })
+//     },function (err) {
+//         console.log("ERROR (2nd Req)!!!",err);
+//     })
+// }, (err) => {
+//     console.log("ERROR!!!",err);
+// })
+
+//=======================================================================================
+//                         ....fake requests using promises....
 //=======================================================================================
 
 
-//=======================================================================================
-//                         ....WEB APIS....
-//=======================================================================================
+
+
+
+
+
 
 //=======================================================================================
 //                         ....WEB APIS....
