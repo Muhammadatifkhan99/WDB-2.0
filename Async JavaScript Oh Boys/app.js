@@ -125,18 +125,18 @@
 // we attach callbacks to the promise instead of passing them as a functions
 //
 
-const fakeRequestPromise = (url) => {
-    return new Promise((resolve, reject) => {
-        const delay = Math.floor(Math.random() * 4500) + 500;
-        setTimeout(() => {
-            if(delay > 4000){
-                reject ('Connection Timeout');
-            } else {
-                resolve (`Here is your fake data from ${url}`);
-            }
-        }, delay);
-    })
-}
+// const fakeRequestPromise = (url) => {
+//     return new Promise((resolve, reject) => {
+//         const delay = Math.floor(Math.random() * 4500) + 500;
+//         setTimeout(() => {
+//             if(delay > 4000){
+//                 reject ('Connection Timeout');
+//             } else {
+//                 resolve (`Here is your fake data from ${url}`);
+//             }
+//         }, delay);
+//     })
+// }
 
 // fakeRequestPromise('yelp.com/api/coffee/page1')
 //     .then(() => {
@@ -186,27 +186,94 @@ const fakeRequestPromise = (url) => {
 //=======================================================================================
 //                         ....Creating Our First Promise....
 //=======================================================================================
-const fakeRequest = (url) => {
+// const fakeRequest = (url) => {
+//     return new Promise((resolve, reject) => {
+//         const rand = Math.random();
+//         setTimeout(() => {
+//             if(rand < 0.7){
+//                 resolve('Your fake data');
+//             }
+//             reject('Request Error!');
+//         }, rand);
+//     })
+// }
+
+// fakeRequest('/dogs/1') 
+//     .then((data) => {
+//         console.log("Done with Request");
+//         console.log("data is: ", data);
+//     })
+//     .catch((err) => {
+//         console.log("OH NO!", err);
+//     })
+
+//=======================================================================================
+//                         ....Replacing the CallBack Hell with promises....
+//=======================================================================================
+// document.body.style.backgroundColor = 'red';
+// document.body.style.backgroundColor = 'orange';
+// document.body.style.backgroundColor = 'yellow';
+
+// setTimeout(() => {
+//     document.body.style.backgroundColor = 'red'; 
+// },1000)
+
+// setTimeout(() => {
+//     document.body.style.backgroundColor = 'orange';
+// },2000)
+
+// setTimeout(() => {
+//     document.body.style.backgroundColor = 'yellow';
+// },3000)
+
+// setTimeout(() => {
+//     document.body.style.backgroundColor = 'red';
+//     setTimeout(() => {
+//         document.body.style.backgroundColor = 'orange';
+//         setTimeout(() => {
+//             document.body.style.backgroundColor = 'yellow';
+//         },1000)
+//     },1000)
+// },1000)
+
+// const delayedColorChange = (newColor, Delay, doNext) =>{
+//     setTimeout(() => {
+//         document.body.style.backgroundColor = newColor;
+//         doNext();
+//     }, Delay);
+// }
+
+// delayedColorChange('red',2000, () => {
+//     delayedColorChange('orange',1000, () => {
+//         delayedColorChange('yellow',1000, () =>{
+//             delayedColorChange('green',1000,() => {
+//                 delayedColorChange('blue',1000, () =>{
+                    
+//                 })
+//             })
+//         })
+//     })
+// });
+
+const delayedColorChange = (color,delay) => {
     return new Promise((resolve, reject) => {
-        const rand = Math.random();
         setTimeout(() => {
-            if(rand < 0.7){
-                resolve('Your fake data');
-            }
-            reject('Request Error!');
-        }, rand);
+            document.body.style.backgroundColor = color;
+            resolve;
+        },delay)
     })
 }
 
-fakeRequest('/dogs/1') 
-    .then((data) => {
-        console.log("Done with Request");
-        console.log("data is: ", data);
-    })
-    .catch((err) => {
-        console.log("OH NO!", err);
-        
-    })
+delayedColorChange('red',1000)
+    .then(() => delayedColorChange('orange',1000))
+    .then(() => delayedColorChange('yellow',1000))
+    .then(() => delayedColorChange('green',1000))
+    .then(() => delayedColorChange('blue',1000))
+    .then(() => delayedColorChange('indigo',1000))
+    .then(() => delayedColorChange('violet',1000))
+
+
+
 
 //=======================================================================================
 //                         ....The Asyn Keyword....
