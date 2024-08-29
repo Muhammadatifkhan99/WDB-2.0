@@ -255,24 +255,60 @@
 //     })
 // });
 
-const delayedColorChange = (color,delay) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            document.body.style.backgroundColor = color;
-            resolve;
-        },delay)
-    })
+// const delayedColorChange = (color,delay) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             document.body.style.backgroundColor = color;
+//             resolve;
+//         },delay)
+//     })
+// }
+
+// delayedColorChange('red',1000)
+//     .then(() => delayedColorChange('orange',1000))
+//     .then(() => delayedColorChange('yellow',1000))
+//     .then(() => delayedColorChange('green',1000))
+//     .then(() => delayedColorChange('blue',1000))
+//     .then(() => delayedColorChange('indigo',1000))
+//     .then(() => delayedColorChange('violet',1000))
+
+//=======================================================================================
+//                         ....The Asyn Keyword....
+//=======================================================================================
+//the async functions returns a promise
+//
+// async function hello () {
+//     return 'Hello';
+// }
+
+// const sing = async () => {
+//     throw "Problem occured";
+//     return "LA LA LA"; //this will always be resolved
+// }
+// sing()
+// .then((data) => {
+//     console.log("PROMISE RESOLVED WITH: ",data)
+// })
+// .catch((err) => {
+//     console.log("OH NO, PROMISE REJECTED");
+//     console.log(err);
+// })
+
+const login = async (username,password) => {
+    if(!username || !password) throw "Missing Credentials";
+    if(password === "alikhan") return "Welcome";
+    throw "Invalid details";
 }
 
-delayedColorChange('red',1000)
-    .then(() => delayedColorChange('orange',1000))
-    .then(() => delayedColorChange('yellow',1000))
-    .then(() => delayedColorChange('green',1000))
-    .then(() => delayedColorChange('blue',1000))
-    .then(() => delayedColorChange('indigo',1000))
-    .then(() => delayedColorChange('violet',1000))
-
-
+login("user", "alikhan")
+.then((data) => {
+    console.log("LOGGED IN");
+    console.log(data);
+})
+.catch((err) => {
+    console.log("Error");
+    console.log(err);
+})
 
 
 //=======================================================================================
