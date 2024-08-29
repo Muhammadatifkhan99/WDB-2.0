@@ -165,23 +165,47 @@ const fakeRequestPromise = (url) => {
 //=======================================================================================
 //                         ....The Magic of Promises....
 //=======================================================================================
-fakeRequestPromise ('yelp.com/api/coffee/page1')
-    .then((data) => {
-        console.log("IT WORKED!!!!!page1");
-        console.log(data)
-        return fakeRequestPromise('yelp.com/api/coffee/page2');
+// fakeRequestPromise ('yelp.com/api/coffee/page1')
+//     .then((data) => {
+//         console.log("IT WORKED!!!!!page1");
+//         console.log(data)
+//         return fakeRequestPromise('yelp.com/api/coffee/page2');
+//     })
+//     .then((data) => {
+//         console.log("IT WORKED!!!!!page2")
+//         console.log(data)
+//         return fakeRequestPromise('yelp.com/api/coffee/page3');
+//     })
+//     .then((data) => {
+//         console.log("IT WORKED!!!!!page3")
+//         console.log(data)
+//     })
+//     .catch(() => {
+//         console.log('OH NO,A REQUEST FAILED');
+//     })
+//=======================================================================================
+//                         ....Creating Our First Promise....
+//=======================================================================================
+const fakeRequest = (url) => {
+    return new Promise((resolve, reject) => {
+        const rand = Math.random();
+        setTimeout(() => {
+            if(rand < 0.7){
+                resolve('Your fake data');
+            }
+            reject('Request Error!');
+        }, rand);
     })
+}
+
+fakeRequest('/dogs/1') 
     .then((data) => {
-        console.log("IT WORKED!!!!!page2")
-        console.log(data)
-        return fakeRequestPromise('yelp.com/api/coffee/page3');
+        console.log("Done with Request");
+        console.log("data is: ", data);
     })
-    .then((data) => {
-        console.log("IT WORKED!!!!!page3")
-        console.log(data)
-    })
-    .catch(() => {
-        console.log('OH NO,A REQUEST FAILED');
+    .catch((err) => {
+        console.log("OH NO!", err);
+        
     })
 
 //=======================================================================================
