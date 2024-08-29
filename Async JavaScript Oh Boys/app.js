@@ -138,34 +138,52 @@ const fakeRequestPromise = (url) => {
     })
 }
 
-fakeRequestPromise('yelp.com/api/coffee/page1')
-    .then(() => {
-    console.log("IT WORKED");
-    fakeRequestPromise('yelp.com/api/coffee/page2')
-    .then(() => {
-        console.log("IT WORKED AGAIN (2ND TIMES)")
-        fakeRequestPromise('yelp.com/api/coffee/page3')
-        .then(() => {
-            console.log("IT WORKED AGAIN (3RD TIME)");
-        })
-        .catch(() => {
-            console.log("OH NO ERROR (page3)");
-        })
-    }).catch(() => {
-        console.log("OH No ERROR (page2)")
+// fakeRequestPromise('yelp.com/api/coffee/page1')
+//     .then(() => {
+//     console.log("IT WORKED");
+//     fakeRequestPromise('yelp.com/api/coffee/page2')
+//     .then(() => {
+//         console.log("IT WORKED AGAIN (2ND TIMES)")
+//         fakeRequestPromise('yelp.com/api/coffee/page3')
+//         .then(() => {
+//             console.log("IT WORKED AGAIN (3RD TIME)");
+//         })
+//         .catch(() => {
+//             console.log("OH NO ERROR (page3)");
+//         })
+//     }).catch(() => {
+//         console.log("OH No ERROR (page2)")
+//     })
+// })
+//     .catch(() => {
+//     console.log("OH ON...ERROR (page1)")
+// })
+
+
+
+
+//=======================================================================================
+//                         ....The Magic of Promises....
+//=======================================================================================
+fakeRequestPromise ('yelp.com/api/coffee/page1')
+    .then((data) => {
+        console.log("IT WORKED!!!!!page1");
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page2');
     })
-})
+    .then((data) => {
+        console.log("IT WORKED!!!!!page2")
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page3');
+    })
+    .then((data) => {
+        console.log("IT WORKED!!!!!page3")
+        console.log(data)
+    })
     .catch(() => {
-    console.log("OH ON...ERROR (page1)")
-})
-
-
-
+        console.log('OH NO,A REQUEST FAILED');
+    })
 
 //=======================================================================================
-//                         ....WEB APIS....
-//=======================================================================================
-
-//=======================================================================================
-//                         ....WEB APIS....
+//                         ....The Asyn Keyword....
 //=======================================================================================
