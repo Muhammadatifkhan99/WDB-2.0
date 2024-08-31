@@ -122,28 +122,47 @@
 
 // https://swapi.dev/api/people/1
 
-const loadStarWarsPeople = async (id) => {
-try {
-    const res = await fetch(`https://swapi.dev/api/people/${id}`);
-    const data = await res.json();
+// const loadStarWarsPeople = async (id) => {
+// try {
+//     const res = await fetch(`https://swapi.dev/api/people/${id}`);
+//     const data = await res.json();
+//     console.log(data);
+//     // const res1 = await fetch(`https://swapi.dev/api/people/${id}`);
+//     // const data1 = await res1.json();
+//     // console.log(data1);
+// }
+// catch(e){
+//     console.log(e);
+// }
+// }
+
+// loadStarWarsPeople(1);
+// loadStarWarsPeople(2);
+
+//=======================================================================================
+//=======================================================================================
+//                                 Axios
+//=======================================================================================
+//=======================================================================================
+// https://swapi.dev/api/people/1
+
+// axios.get("https://swapi.dev/api/people/1")
+// .then(res => {
+//     console.log("RESPONSE:",res);
+//     console.log(res.data);
+// })
+// .catch(e => {
+//     console.log("ERROR!!!",e);
+// })
+
+
+const getStarWarsPerson = async () => {
+    const person = await axios.get("https://swapi.dev/api/people/1");
+    const data = person.data;
     console.log(data);
-    // const res1 = await fetch(`https://swapi.dev/api/people/${id}`);
-    // const data1 = await res1.json();
-    // console.log(data1);
 }
-catch(e){
-    console.log(e);
-}
-}
+getStarWarsPerson();
 
-loadStarWarsPeople(1);
-loadStarWarsPeople(2);
-
-//=======================================================================================
-//=======================================================================================
-//                                 The Fetch
-//=======================================================================================
-//=======================================================================================
 
 //=======================================================================================
 //=======================================================================================
