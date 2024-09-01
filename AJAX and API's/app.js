@@ -156,19 +156,52 @@
 // })
 
 
-const getStarWarsPerson = async () => {
-    const person = await axios.get("https://swapi.dev/api/people/1");
-    const data = person.data;
-    console.log(data);
+// const getStarWarsPerson = async () => {
+//     const person = await axios.get("https://swapi.dev/api/people/1");
+//     const data = person.data;
+//     console.log(data);
+// }
+// getStarWarsPerson();
+
+
+//=======================================================================================
+//=======================================================================================
+//                                 HEADERS WITH AXIOS
+//=======================================================================================
+//=======================================================================================
+
+
+const ul = document.querySelector('#jokes');
+const button = document.querySelector('button');
+
+
+
+const addNewJoke = async () => {
+    const jokeText = await getDadJokes();
+    // console.log(jokeText);
+    const newLI = document.createElement('LI');
+    newLI.append(jokeText);
+    ul.append(newLI);
 }
-getStarWarsPerson();
+
+const getDadJokes = async () => {
+    try{
+        const config = {headers: {Accept: 'application/json' } }
+        const res = await axios.get("https://icanhazdadjoke.com/",config)
+        return res.data.joke;
+    }
+    catch(e){
+        return "NO jOKES AVAILABLE SORRY :("
+    }
+    // console.log(res);
+}
+button.addEventListener('click',addNewJoke )
+
+//api do have rate limit we need to respect that rate limit and do not spam them
+//do not loop over them this could cause blocking of your IP///
 
 
-//=======================================================================================
-//=======================================================================================
-//                                 The Fetch
-//=======================================================================================
-//=======================================================================================
+
 
 //=======================================================================================
 //=======================================================================================
