@@ -69,7 +69,22 @@
 //                                  Constructor Functions
 //=======================================================================================
 //=======================================================================================
+//this is a contrcutor functions,,,, it creates a new object with the new keyword...
+function Color(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    console.log(this);
+}
 
+// without the new keyword this refers to the window object
+new Color(24,233,223);
+
+
+Color.prototype.rgb = function () {
+    const {r,g,b} = this;
+    return `rgb(${r},${g},${b})`
+};
 
 
 
