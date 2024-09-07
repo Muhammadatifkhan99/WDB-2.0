@@ -66,6 +66,14 @@ app.get('/r/:subreddit/:postID', (req,res) => {
     res.send(`<h1>Viewing the PostID:${postID} on the ${subreddit} subreddit</h1>`)
 })
 
+app.get('/search',(req,res) => {
+    console.log(req.query);
+    const {q} = req.query;
+    if(!q){
+        res.send("NOTHING FOUND IF NOTHING SEARCHED")
+    }
+    res.send(` <h1>Search results for: ${q}</h1>`);
+})
 
 //this method needs to be at the end of the other get() method otherwise it win everytime
 app.get('*', (req,res) => {
