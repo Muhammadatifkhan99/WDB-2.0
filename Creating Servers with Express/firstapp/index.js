@@ -55,6 +55,18 @@ app.get('/dogs', (req,res) => {
     res.send("Dogs");
 })
 
+app.get('/r/:subreddit', (req,res) => {
+    const {subreddit } = req.params;
+    console.log(req.params);
+    res.send(`<h1>Browsing the ${subreddit} subreddit</h1>`)
+})
+app.get('/r/:subreddit/:postID', (req,res) => {
+    const {subreddit, postID} = req.params;
+    console.log(req.params);
+    res.send(`<h1>Viewing the PostID:${postID} on the ${subreddit} subreddit</h1>`)
+})
+
+
 //this method needs to be at the end of the other get() method otherwise it win everytime
 app.get('*', (req,res) => {
     res.send("This path is not availale sorry for that");
