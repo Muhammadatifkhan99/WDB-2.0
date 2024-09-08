@@ -39,7 +39,7 @@ const app = express();
 
 app.get('/',(req,res) => {
     console.log("HOME");
-    res.send("This is the homepage");
+    res.send("HOME PAGE");
 })
 app.post('/cats', (req,res) => {
     res.send("This is a post request different then the get request")
