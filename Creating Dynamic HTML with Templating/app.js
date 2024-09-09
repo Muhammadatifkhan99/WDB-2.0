@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
+//to execute this file and render views we need the path module and for that we use the __dirname 
+//which refers to the place where this current file lives..
+const path = require('path');
+
 
 app.set('view engine', 'ejs');
+//this code helps to run this file from anywhere becose we have set the correct path for the views.
+
+app.set('views', path.join(__dirname,'/views'));
 
 app.get('/', (req, res) => {
     // res.send("HI")
