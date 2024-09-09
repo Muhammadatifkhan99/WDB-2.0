@@ -12,7 +12,10 @@ app.set('views', path.join(__dirname,'/views'));
 
 app.get('/', (req, res) => {
     // res.send("HI")
-    res.render('home.ejs')
+    //we can remove the .ejs from the file,,because once we set the view engine to ejs no need 
+    //to write the extension with it then
+    // res.render('home.ejs'); //both are equal
+    res.render('home');
 })
 
 app.listen(3000, () =>{
