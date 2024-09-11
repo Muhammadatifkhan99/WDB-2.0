@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     // res.render('home.ejs'); //both are equal
     res.render('home');
 })
+app.get('/r/:subreddit', (req,res) => {
+    const {subreddit} = req.params;
+    res.render('subreddit', {subreddit})
+})
 
 app.get('/rand',(req,res) => {
     let num = Math.floor(Math.random() * 10) + 1;
