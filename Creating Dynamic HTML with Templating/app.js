@@ -18,6 +18,13 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.get('/rand',(req,res) => {
+    let num = Math.floor(Math.random() * 10) + 1;
+    //render can take in two perameters, the second one is an object and it's a key value pair
+    // res.render('random', {rand: num});
+    res.render('random', {num});
+})
+
 app.listen(3000, () =>{
     console.log("Listeing on port 3000")
 })
