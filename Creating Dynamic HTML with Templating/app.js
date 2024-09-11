@@ -17,6 +17,13 @@ app.get('/', (req, res) => {
     // res.render('home.ejs'); //both are equal
     res.render('home');
 })
+app.get('/cats', (req,res) => {
+    const cats = [
+        'Blue', 'Wineston', 'Rocket', 'Monte', 'Stephenie'
+    ]
+    res.render('cats', {cats})
+})
+
 app.get('/r/:subreddit', (req,res) => {
     const {subreddit} = req.params;
     res.render('subreddit', {subreddit})
