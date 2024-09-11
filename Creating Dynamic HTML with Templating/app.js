@@ -22,7 +22,7 @@ app.get('/r/:subreddit', (req,res) => {
     res.render('subreddit', {subreddit})
 })
 
-app.get('/rand',(req,res) => {
+app.get('/random',(req,res) => {
     let num = Math.floor(Math.random() * 10) + 1;
     //render can take in two perameters, the second one is an object and it's a key value pair
     // res.render('random', {rand: num});
