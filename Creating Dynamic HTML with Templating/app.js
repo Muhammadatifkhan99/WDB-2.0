@@ -9,8 +9,6 @@ const { subscribe } = require('diagnostics_channel');
 console.log(redditData);
 
 
-
-
 app.use(express.static('public'));
 //without this the cssfiles/static files wan't be served while executing them from different directory
 app.use(express.static(path.join(__dirname,'public')));
