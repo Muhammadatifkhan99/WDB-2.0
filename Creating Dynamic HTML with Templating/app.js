@@ -3,6 +3,10 @@ const app = express();
 //to execute this file and render views we need the path module and for that we use the __dirname 
 //which refers to the place where this current file lives..
 const path = require('path');
+//requiring a file
+const redditData = require('./data.json');
+const { subscribe } = require('diagnostics_channel');
+console.log(redditData);
 
 
 app.set('view engine', 'ejs');
@@ -26,7 +30,15 @@ app.get('/cats', (req,res) => {
 
 app.get('/r/:subreddit', (req,res) => {
     const {subreddit} = req.params;
-    res.render('subreddit', {subreddit})
+    const data = redditData[subreddit];
+    console.log(data);
+    // res.render('subreddit', {subreddit})
+    if(data) {
+        res.render('subreddit', {...data});
+    } else {
+        res.render('notfound', {subreddit})
+    }
+   
 })
 
 app.get('/random',(req,res) => {
