@@ -17,19 +17,19 @@ app.set('views', path.join(__dirname,'views'));
 //array to hold comments to be used to demonstrate routes
 
 const comments = [
-    {
+    {   id: 1,
         username: 'Todd',
         comment : 'lol, that is so funny'
     },
-    {
+    {   id: 2,
         username: 'Skyler',
         comment: 'I like to go birdwatching with my dog'
     },
-    {
+    {   id: 3,
         username: 'Sk8erBio',
         comment: 'Plz delete your account Todd'
     },
-    {
+    {   id: 4,
         username: 'onlysaywoofwoof',
         comment: 'woof woof woof'
     }
@@ -51,6 +51,23 @@ app.post('/comments', (req,res) => {
     // res.send("IT WORKED")
     res.redirect('/comments')
 })
+
+app.get('/comments/:id', (req,res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === parseInt(id));
+    res.render('comments/show', { comment });
+})
+
+
+
+
+
+
+
+
+
+
+
 
 // on the get request we have the req.query because get requests are usally a query strings
 app.get('/tacos', (req,res) => {
