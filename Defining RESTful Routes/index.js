@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { v4: uuid } = require('uuid');
+uuid();
 
 //app.use code will always run when ever a request is made to this page....the type of request does not matters
 
@@ -17,19 +19,19 @@ app.set('views', path.join(__dirname,'views'));
 //array to hold comments to be used to demonstrate routes
 
 const comments = [
-    {   id: 1,
+    {   id: uuid(),
         username: 'Todd',
         comment : 'lol, that is so funny'
     },
-    {   id: 2,
+    {   id: uuid(),
         username: 'Skyler',
         comment: 'I like to go birdwatching with my dog'
     },
-    {   id: 3,
+    {   id: uuid(),
         username: 'Sk8erBio',
         comment: 'Plz delete your account Todd'
     },
-    {   id: 4,
+    {   id: uuid(),
         username: 'onlysaywoofwoof',
         comment: 'woof woof woof'
     }
@@ -54,7 +56,9 @@ app.post('/comments', (req,res) => {
 
 app.get('/comments/:id', (req,res) => {
     const { id } = req.params;
-    const comment = comments.find(c => c.id === parseInt(id));
+    //we nolonger need to parse the int since it already a string value
+    // const comment = comments.find(c => c.id === parseInt(id));
+    const comment = comments.find(c => c.id === id);
     res.render('comments/show', { comment });
 })
 
