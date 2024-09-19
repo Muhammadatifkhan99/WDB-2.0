@@ -35,6 +35,11 @@ const comments = [
     }
 ]
 
+app.get('/comments', (req,res) => {
+    //we need to pass the comments object to this to have access to it in the template
+    res.render('comments/index', {comments});
+})
+
 // on the get request we have the req.query because get requests are usally a query strings
 app.get('/tacos', (req,res) => {
     res.send("GET /tacos Request");
