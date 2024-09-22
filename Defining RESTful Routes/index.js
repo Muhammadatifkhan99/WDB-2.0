@@ -62,6 +62,11 @@ app.get('/comments/:id', (req,res) => {
     res.render('comments/show', { comment });
 })
 
+app.get('/comment/:id/edit', (req,res) => {
+    const comment = comments.find(c => c.id === id);
+    res.render('comments/edit', {comment});
+})
+
 app.patch('/comments/:id', (req,res) => {
     // res.send("Updating something");
     const {id} = req.params;
