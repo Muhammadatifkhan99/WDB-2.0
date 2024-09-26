@@ -17,7 +17,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'views'));
 
 //array to hold comments to be used to demonstrate routes
-
 const comments = [
     {   id: uuid(),
         username: 'Todd',
@@ -77,13 +76,6 @@ app.patch('/comments/:id', (req,res) => {
     // console.log(req.body.comment);
     // res.send("All Good For Now");
 })
-
-
-
-
-
-
-
 
 
 
