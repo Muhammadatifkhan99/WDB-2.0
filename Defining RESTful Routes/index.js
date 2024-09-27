@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'views'));
 
 //array to hold comments to be used to demonstrate routes
-const comments = [
+let comments = [
     {   id: uuid(),
         username: 'Todd',
         comment : 'lol, that is so funny'
@@ -89,6 +89,14 @@ app.patch('/comments/:id', (req,res) => {
     // console.log(req.body.comment);
     // res.send("All Good For Now");
 })
+
+app.delete('/comments/:id', (req,res) => {
+    const { id } = req.params;
+    comments = comments.filter(c => c.id != id);
+    res.redirect('/comments')
+})
+
+
 // on the get request we have the req.query because get requests are usally a query strings
 app.get('/tacos', (req,res) => {
     res.send("GET /tacos Request");
