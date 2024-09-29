@@ -1,0 +1,172 @@
+$ mongosh
+Current Mongosh Log ID: 66f7c30e4b0b3b310ac73bf7
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:          8.0.0
+Using Mongosh:          2.3.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-28T13:05:05.727+05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> db
+test
+test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   72.00 KiB
+test> show databases
+admin   40.00 KiB
+config  60.00 KiB
+        72.00 KiB
+test> show database
+Uncaught:
+SyntaxError: Unexpected character ':0)
+
+> 1 | how database
+    | ^
+  2 |
+
+test> show databases
+admin   40.00 KiB
+config  60.00 KiB
+local   72.00 KiB
+test> db
+test
+test> use animalShelter
+switched to db animalShelter
+animalShelter> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+animalShelter> show database
+MongoshInvalidInputError: [COMMON-10001] 'database' is not a valid argument for "show".
+animalShelter> show databases
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+animalShelter> exit
+
+PMYLS@Crescent MINGW64 ~/Desktop/Code/Our First Database MongoDB (master)
+$ mongosh
+Current Mongosh Log ID: 66f7c51320fd3fbef0c73bf7
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:          8.0.0
+Using Mongosh:          2.3.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-28T13:05:05.727+05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> db
+test
+test> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+test> animalShelter
+ReferenceError: animalShelter is not defined
+test> use animalShelter
+switched to db animalShelter
+animalShelter> db
+animalShelter
+animalShelter> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+animalShelter> exit
+
+PMYLS@Crescent MINGW64 ~/Desktop/Code/Our First Database MongoDB (master)
+$ mongosh
+Current Mongosh Log ID: 66f7d4978595e563b1c73bf7
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:          8.0.0
+Using Mongosh:          2.3.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-28T13:05:05.727+05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+admin   40.00 KiB
+config  48.00 KiB
+local   72.00 KiB
+test> show collections
+
+test> db
+test
+test> use animalShelter
+switched to db animalShelter
+animalShelter> db
+animalShelter
+animalShelter> db.dogs.insertOne({name: "Charlie", age: 3, breed: "corgi",catFriendly: true})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66f7d4f78595e563b1c73bf8')
+}
+animalShelter> show collections
+dogs
+animalShelter> db.dogs.find()
+[
+  {
+    _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+    name: 'Charlie',
+    age: 3,
+    breed: 'corgi',
+    catFriendly: true
+  }
+]
+animalShelter> dogs.find()
+ReferenceError: dogs is not defined
+animalShelter> db.dogs.find()
+[
+  {
+    _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+    name: 'Charlie',
+    age: 3,
+    breed: 'corgi',
+    catFriendly: true
+  }
+]
+animalShelter> db.dogs.insert([{name: "Wyatt",breed: "Golden",age:14,catFriendly:false},{name: "Tonya", breed: "Chihuahua",age:17,catFriendly: true}])
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66f7d71f8595e563b1c73bf9'),
+    '1': ObjectId('66f7d71f8595e563b1c73bfa')
+  }
+}
+animalShelter> db.dogs.find()
+[
+  {
+    _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+    name: 'Charlie',
+    age: 3,
+    breed: 'corgi',
+    catFriendly: true
+  },
+  {
+    _id: ObjectId('66f7d71f8595e563b1c73bf9'),
+    name: 'Wyatt',
+    breed: 'Golden',
+    age: 14,
+    catFriendly: false
+  },
+  {
+    _id: ObjectId('66f7d71f8595e563b1c73bfa'),
+    name: 'Tonya',
+    breed: 'Chihuahua',
+    age: 17,
+    catFriendly: true
+  }
+]
+animalShelter>
