@@ -1,0 +1,70 @@
+PMYLS@Crescent MINGW64 ~/Desktop/Code/Our First Database MongoDB (master)
+$ mongosh
+Current Mongosh Log ID: 66f8ffcfe16a3fe74bc73bf7
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:          8.0.0
+Using Mongosh:          2.3.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-29T11:36:30.344+05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test>
+test>
+test>
+test> db
+test
+test> show dbs
+admin          40.00 KiB
+animalShelter  72.00 KiB
+config         48.00 KiB
+local          72.00 KiB
+test> use animalShelter
+switched to db animalShelter
+animalShelter> db.dogs.find({})
+[
+  {
+    _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+    name: 'Charlie',
+    age: 3,
+    breed: 'corgi',
+    catFriendly: true
+  },
+  {
+    _id: ObjectId('66f7d71f8595e563b1c73bf9'),
+    name: 'Wyatt',
+    breed: 'Golden',
+    age: 14,
+    catFriendly: false
+  },
+  {
+    _id: ObjectId('66f7d71f8595e563b1c73bfa'),
+    name: 'Tonya',
+    breed: 'Chihuahua',
+    age: 17,
+    catFriendly: true
+  }
+]
+animalShelter> db.dogs.findOne({catFriendly : ture})
+ReferenceError: ture is not defined
+animalShelter> db.dogs.findOne({catFriendly: true})
+{
+  _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+  name: 'Charlie',
+  age: 3,
+  breed: 'corgi',
+  catFriendly: true
+}
+animalShelter> db.dogs.find({breed: "corgi", age:3})
+[
+  {
+    _id: ObjectId('66f7d4f78595e563b1c73bf8'),
+    name: 'Charlie',
+    age: 3,
+    breed: 'corgi',
+    catFriendly: true
+  }
+]
