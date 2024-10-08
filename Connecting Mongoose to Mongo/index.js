@@ -43,8 +43,8 @@ const Movie = mongoose.model('Movie', movieSchema);
 //     console.log("IT WORKED");
 //     console.log(data);
 // })
-Movie.findById({_id : '6702651a98fbe3bcee62be14'}).then (m => console.log(m));
-Movie.findOne({}).then (m => console.log(m));
+// Movie.findById({_id : '6702651a98fbe3bcee62be14'}).then (m => console.log(m));
+// Movie.findOne({}).then (m => console.log(m));
 
 
 
