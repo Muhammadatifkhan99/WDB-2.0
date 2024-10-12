@@ -19,13 +19,28 @@ const productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: false
+    },
+    onSale: {
+        type: Boolean,
+        default: false
+    },
+    categories: [String],
+    qty: {
+        online: {
+            type: String,
+            default: 0
+        },
+        inStore: {
+            type: String,
+            default: 0
+        }
     }
 })
 
 
 const Product = mongoose.model('Product', productSchema);
 
-const bike = new Product ({name: 'Mountain Bike',price: '599', color: 'red'}); //the string value can be converted to an actual number
+const bike = new Product ({name: 'Bike Helmet',price: '29.3', categories: ['Cycling', 'Safey']}); //the string value can be converted to an actual number
 
 bike.save()
     .then(data => {
