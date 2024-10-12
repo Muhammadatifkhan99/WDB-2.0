@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/moviesApp")
     .then(() => {
         console.log("CONNECTION OPEN");
+        //we donot need to nest our code here becasue mongoose do operation buffering allowing us to use
+        //the models immediatly with out having to wait of the mongoose to be connected
+        //
     })
     .catch(err => {
         console.log("ERROR");
