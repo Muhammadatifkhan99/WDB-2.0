@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: false,
-        min: 0
+        min: [6, 'Price must be positive yo dodo']
     },
     onSale: {
         type: Boolean,
@@ -36,13 +36,17 @@ const productSchema = new mongoose.Schema({
             type: String,
             default: 0
         }
+    },
+    size: {
+        type: String,
+        enum: ['S','M','L']
     }
 })
 
 
 const Product = mongoose.model('Product', productSchema);
 
-const bike = new Product ({name: 'Bike Helmet',price: '29.3', categories: ['Cycling', 'Safey']}); //the string value can be converted to an actual number
+const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling'], size: 'XS'}); //the string value can be converted to an actual number
 
 bike.save()
     .then(data => {
@@ -55,6 +59,19 @@ bike.save()
         //console.log(err.errors.name.properties.message); //to get to the exact error message of the error object
         
     })
+
+
+//const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling']}); //the string value can be converted to an actual number
+
+// Product.findOneAndUpdate({name: 'Tire Pump'},{ price: -9}, {new: true, runValidators: true})
+//     .then(data => {
+//         console.log("IT Worked");
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.log("ERRoR");
+//         console.log(err);
+//     })
 ///when the validation was forced to be incorrect....here is the result
 
 // ERRoR
