@@ -14,11 +14,13 @@ mongoose.connect("mongodb://localhost:27017/shopApp")
 const productSchema = new mongoose.Schema({
     name: {
         type : String,
-        required: true
+        required: true,
+        maxlength: 20
     },
     price: {
         type: Number,
-        required: false
+        required: false,
+        min: 0
     },
     onSale: {
         type: Boolean,
