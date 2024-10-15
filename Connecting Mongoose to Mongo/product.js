@@ -43,22 +43,35 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+productSchema.methods.greet= function (){
+    console.log("HELLO !!!! HI !!!! HOWDY")
+    console.log(`- from ${this.name}`);
+}
+
 
 const Product = mongoose.model('Product', productSchema);
 
-const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling'], size: 'XS'}); //the string value can be converted to an actual number
 
-bike.save()
-    .then(data => {
-        console.log("IT Worked");
-        console.log(data);
-    })
-    .catch(err => {
-        console.log("ERRoR");
-        console.log(err);
-        //console.log(err.errors.name.properties.message); //to get to the exact error message of the error object
+const findProduct  = async () => {
+    const foundProduct = await Product.findOne({name: "Mountain Bike"});
+    foundProduct.greet();
+}
+
+findProduct();
+
+// const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling'], size: 'XS'}); //the string value can be converted to an actual number
+
+// bike.save()
+//     .then(data => {
+//         console.log("IT Worked");
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.log("ERRoR");
+//         console.log(err);
+//         //console.log(err.errors.name.properties.message); //to get to the exact error message of the error object
         
-    })
+//     })
 
 
 //const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling']}); //the string value can be converted to an actual number
