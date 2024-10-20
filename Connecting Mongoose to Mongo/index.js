@@ -56,15 +56,15 @@ const Movie = mongoose.model('Movie', movieSchema);
 // });
 
 
-const movieSchema = new mongoose.Schema({
-    title : String,
-    year: Number,
-    score: Number,
-    rating: String
-})
+// const movieSchema = new mongoose.Schema({
+//     title : String,
+//     year: Number,
+//     score: Number,
+//     rating: String
+// })
 
-//This will gives us a class
-const Movie = mongoose.model('Movie', movieSchema);
+// //This will gives us a class
+// const Movie = mongoose.model('Movie', movieSchema);
 
 //This will make a new instance of the Movie class
 // const Amadeus = new Movie ({title: 'amadeus', year: 1986, score: 9.2, rating: 'R'});
