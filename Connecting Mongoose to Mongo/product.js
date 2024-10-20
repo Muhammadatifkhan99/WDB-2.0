@@ -43,9 +43,26 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+
+//cannot use an arrow function because of the value of the this keyword....
 productSchema.methods.greet= function (){
     console.log("HELLO !!!! HI !!!! HOWDY")
     console.log(`- from ${this.name}`);
+}
+
+productSchema.methods.toggleonSale = function () {
+    this.onSale = !this.onSale;
+    //return the thenable object here
+    return this.save();
+}
+
+productSchema.methods.addCategory = function (newCat){
+    this.categories.push(newCat);
+    return this.save();
+}
+
+productSchema.statics.fireSale = function () {
+    return this.updateMany({},{ onSale: true, price: 0});
 }
 
 
@@ -53,11 +70,20 @@ const Product = mongoose.model('Product', productSchema);
 
 
 const findProduct  = async () => {
-    const foundProduct = await Product.findOne({name: "Mountain Bike"});
-    foundProduct.greet();
+    const foundProduct = await Product.findOne({name: "Bike Helmet"});
+    console.log(foundProduct);
+    //await the thenable object here
+    await foundProduct.toggleonSale();
+    console.log(foundProduct);
+    await foundProduct.addCategory("Outdoor");
+    console.log(foundProduct);
 }
 
-findProduct();
+
+Product.fireSale().then(res => console.log(res));
+
+
+// findProduct();
 
 // const bike = new Product ({name: 'Tire Pump',price: '19.3', categories: ['Cycling'], size: 'XS'}); //the string value can be converted to an actual number
 
