@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/shopApp", {useNewUrlParser: true})
+mongoose.connect("mongodb://localhost:27017/shopApp")
     .then(() => {
         console.log("CONNECTION OPEN");
     })
@@ -21,6 +21,18 @@ const personSchema = new mongoose.Schema ({
 //virtual methods
 personSchema.virtual('fullName').get(function(){return `${this.first} ${this.last}`})
 
+
+//middle ware
+
+personSchema.pre('save', async function () {
+    this.first = 'YO';
+    this.last = 'MAMA';
+    console.log("about to save");
+})
+
+personSchema.post('save', async function (){
+    console.log('Just saved');
+})
 
 //define the mongoose model
 
