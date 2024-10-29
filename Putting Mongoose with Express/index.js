@@ -26,18 +26,21 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended:true}))
 app.use(methodoverride("_method"));
 
+
+
+const categories = ["fruit","vegetable","dairy"];
+
+//================================ROUTES=======================================================
 //adding a basic route
 app.get("/products", async (req,res) => {
     const products = await Product.find({})
     // console.log(products);
     res.render("products/index", { products });
 })
-
 //creating the new product route..........................
 app.get("/products/new", async (req,res) => {
-    res.render("products/new");
+    res.render("products/new", { categories });
 })
-
 //route for submission of the form i.e is to the /products
 app.post("/products", async(req,res) => {
     //in post requests when information is required from the post request body, we do not have access to it 
@@ -50,7 +53,6 @@ app.post("/products", async(req,res) => {
     // res.send("making your product");
     res.redirect(`/products/${ newProduct._id }`)
 })
-
 app.get("/products/:id", async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -58,20 +60,18 @@ app.get("/products/:id", async (req, res) => {
     // res.send("Details Page");
     res.render("products/show", { product });
 })
-
 app.get("/products/:id/edit", async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id)
-    res.render("products/edit", { product });
+    res.render("products/edit", { product, categories });
 })
-
 app.put("/products/:id", async (req,res) => {
     // console.log(req.body);
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new:true});
     res.redirect(`/products/${product._id}`);
 })
-
+//================================ROUTES=======================================================
 app.listen(4000, () => {
     console.log("APP IS LISTENING ON PORT 4000!");
 })
