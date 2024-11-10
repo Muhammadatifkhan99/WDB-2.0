@@ -12,13 +12,20 @@ const morgan = require("morgan");
 // app.use(morgan("dev"));
 
 app.use(morgan("tiny"));
+
+
 app.use((req,res, next) => {
     //making every request a GET request
     // req.method  = "GET";
     req.requestTime = Date.now();
     console.log(req.method, req.path);
     next();
-})
+});
+//this route will run and then the second route will run only if the request was a GET...for POST this will execute only..
+app.use("/dogs",(req,res,next) => {
+    console.log("I LOVE DOGS");
+    next();
+});
 
 
 
@@ -48,10 +55,14 @@ app.get("/", (req,res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send("HOME PAGE");
 })
-
+//2nd route
 app.get("/dogs", (req,res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send("WOOF WOOF");
+})
+
+app.use((req,res,next) => {
+    res.status(404).send("NOT FOUND");
 })
 
 app.listen(3000, () => {
