@@ -28,6 +28,19 @@ app.use("/dogs",(req,res,next) => {
 });
 
 
+//this will run for every single route
+
+//this function passed to any other function will have the route protected and require a password to be accessed
+const verifyPassword = ((req,res,next) => {
+    const { password } = req.query;
+    if(password === "chickennugget"){
+        next();
+    } else{
+        res.send("YOU NEED A PASSWORD");
+    }
+})
+
+
 
 
 
@@ -56,9 +69,14 @@ app.get("/", (req,res) => {
     res.send("HOME PAGE");
 })
 //2nd route
-app.get("/dogs", (req,res) => {
+app.get("/dogs",verifyPassword, (req,res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send("WOOF WOOF");
+})
+
+
+app.get("/secret",verifyPassword, (req,res,next) => {
+    res.send("MY SECRET IS: I love to listen to music when I am in public.");
 })
 
 app.use((req,res,next) => {
