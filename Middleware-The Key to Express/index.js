@@ -36,16 +36,10 @@ const verifyPassword = ((req,res,next) => {
     if(password === "chickennugget"){
         next();
     } else{
-        // res.send("YOU NEED A PASSWORD");
-        throw new Error ("Password Required");
+        res.send("YOU NEED A PASSWORD");
+        // throw new Error ("Password Required");
     }
 })
-
-
-
-
-
-
 
 // app.use((req,res, next) => {
 //     // res.send("HIJACKED BY GOVERNMENT");
@@ -70,7 +64,7 @@ app.get("/", (req,res) => {
     res.send("HOME PAGE");
 })
 //2nd route
-app.get("/dogs",verifyPassword, (req,res) => {
+app.get("/dogs", (req,res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send("WOOF WOOF");
 })
@@ -86,6 +80,14 @@ app.get("/errors", (req,res) => {
 
 app.use((req,res,next) => {
     res.status(404).send("NOT FOUND");
+})
+
+
+//manaully handling express errors.....using this signature for a middleware 
+app.use((err,req,res,next) => {
+    console.log("********************");
+    console.log("********ERROR*******");
+    console.log("********************");
 })
 
 app.listen(3000, () => {
