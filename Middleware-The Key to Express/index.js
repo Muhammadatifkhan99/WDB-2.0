@@ -30,7 +30,7 @@ app.use("/dogs",(req,res,next) => {
 
 //this will run for every single route
 
-//this function passed to any other function will have the route protected and require a password to be accessed
+//this function is passed to any other function will have the route protected and require a password to be accessed
 const verifyPassword = ((req,res,next) => {
     const { password } = req.query;
     if(password === "chickennugget"){
