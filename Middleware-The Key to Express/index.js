@@ -88,6 +88,8 @@ app.use((err,req,res,next) => {
     console.log("********************");
     console.log("********ERROR*******");
     console.log("********************");
+    // res.status(500).send("OH BOY! ERROR")
+    next();
 })
 
 app.listen(3000, () => {
