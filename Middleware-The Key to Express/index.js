@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
+const AppError = require("./AppError");
+
 
 //app.use() allow us to run code on every single request to the server....
 //express.static serve static files
@@ -31,15 +33,15 @@ app.use("/dogs",(req,res,next) => {
 //this will run for every single route
 
 //this function is passed to any other function will have the route protected and require a password to be accessed
-const verifyPassword = ((req,res,next) => {
+const verifyPassword = (req,res,next) => {
     const { password } = req.query;
     if(password === "chickennugget"){
         next();
-    } else{
-        res.send("YOU NEED A PASSWORD");
-        // throw new Error ("Password Required");
     }
-})
+    // res.status(401);    //this code will display a 401 authorization error to the user in the console
+    // res.send("YOU NEED A PASSWORD");
+    throw new AppError ("Password Required",401);
+}
 
 // app.use((req,res, next) => {
 //     // res.send("HIJACKED BY GOVERNMENT");
@@ -69,9 +71,12 @@ app.get("/dogs", (req,res) => {
     res.send("WOOF WOOF");
 })
 
-
 app.get("/secret",verifyPassword, (req,res,next) => {
     res.send("MY SECRET IS: I love to listen to music when I am in public.");
+})
+
+app.get("/admin", (req,res) => {
+    throw new AppError("You are not an Admin",403);
 })
 
 app.get("/errors", (req,res) => {
@@ -82,15 +87,19 @@ app.use((req,res,next) => {
     res.status(404).send("NOT FOUND");
 })
 
+app.use((err,req,res,next) => {
+    const { status=500, message = "Something Went Wrong" } = err;
+    res.status(status).send(message);
+})
 
 //manaully handling express errors.....using this signature for a middleware 
-app.use((err,req,res,next) => {
-    console.log("********************");
-    console.log("********ERROR*******");
-    console.log("********************");
-    // res.status(500).send("OH BOY! ERROR")
-    next();
-})
+// app.use((err,req,res,next) => {
+//     console.log("********************");
+//     console.log("********ERROR*******");
+//     console.log("********************");
+//     // res.status(500).send("OH BOY! ERROR")
+//     next();
+// })
 
 app.listen(3000, () => {
     console.log("App is running on localhost:3000");
