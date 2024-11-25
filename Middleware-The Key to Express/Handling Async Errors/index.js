@@ -46,7 +46,6 @@ app.get("/products", async (req,res) => {
 })
 //creating the new product route..........................
 app.get("/products/new", (req,res) => {
-    throw new AppError("Not Allowed", 401);
     res.render("products/new", { categories });
 })
 
@@ -65,16 +64,22 @@ app.post("/products", async(req,res) => {
     // res.send("making your product");
     res.redirect(`/products/${ newProduct._id }`)
 })
-app.get("/products/:id", async (req, res) => {
+app.get("/products/:id", async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id);
+    if(!product){
+        return next(new AppError("Product Not Found",404));
+    }
     // console.log(product);
     // res.send("Details Page");
     res.render("products/show", { product });
 })
-app.get("/products/:id/edit", async (req, res) => {
+app.get("/products/:id/edit", async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id)
+    if(!product){
+        return next(new AppError("Product Not Found",404));
+    }
     res.render("products/edit", { product, categories });
 })
 app.put("/products/:id", async (req,res) => {
