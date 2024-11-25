@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const methodoverride = require("method-override");
 
 const Product = require("./models/product");
+const AppError = require("./AppError");
 
-mongoose.connect("mongodb://localhost:27017/farmStand")
+mongoose.connect("mongodb://localhost:27017/farmStand2")
     .then(() => {
         console.log("CONNECTION OPEN");
         //we donot need to nest our code here becasue mongoose do operation buffering allowing us to use
@@ -44,9 +45,14 @@ app.get("/products", async (req,res) => {
     }
 })
 //creating the new product route..........................
-app.get("/products/new", async (req,res) => {
+app.get("/products/new", (req,res) => {
+    throw new AppError("Not Allowed", 401);
     res.render("products/new", { categories });
 })
+
+
+
+
 //route for submission of the form i.e is to the /products
 app.post("/products", async(req,res) => {
     //in post requests when information is required from the post request body, we do not have access to it 
@@ -83,6 +89,14 @@ app.delete("/products/:id", async (req,res) => {
     res.redirect("/products");
 })
 //================================ROUTES=======================================================
+
+//================================Error Handling Middlewares=======================================================
+app.use((err,req,res,next) => {
+    const { status = 500, message = "Something Went Wrong"} = err;
+    res.status(status).send(message);
+})
+//================================Middlewares=======================================================
+
 app.listen(4000, () => {
     console.log("APP IS LISTENING ON PORT 4000!");
 })
