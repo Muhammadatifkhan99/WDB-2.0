@@ -76,7 +76,7 @@ app.get("/products/:id", async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id);
     if(!product){
-        return next(new AppError("Product Not Found",404));
+        throw next(new AppError("Product Not Found",404));
     }
     // console.log(product);
     // res.send("Details Page");
@@ -86,7 +86,7 @@ app.get("/products/:id/edit", async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id)
     if(!product){
-        return next(new AppError("Product Not Found",404));
+        throw next(new AppError("Product Not Found",404));
     }
     res.render("products/edit", { product, categories });
 })
