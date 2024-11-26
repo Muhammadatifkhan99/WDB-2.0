@@ -33,7 +33,8 @@ const categories = ["fruit","vegetable","dairy"];
 
 //================================ROUTES=======================================================
 //adding a basic route
-app.get("/products", async (req,res) => {
+app.get("/products", async (req,res,next) => {
+    try {
     const { category } = req.query;
     if(category){
         const products = await Product.find({ category });
@@ -42,6 +43,9 @@ app.get("/products", async (req,res) => {
         const products = await Product.find({})
         // console.log(products);
         res.render("products/index", { products, category });
+        }
+    } catch(e) {
+        next(e);
     }
 })
 //creating the new product route..........................
@@ -53,16 +57,20 @@ app.get("/products/new", (req,res) => {
 
 
 //route for submission of the form i.e is to the /products
-app.post("/products", async(req,res) => {
+app.post("/products", async(req,res,next) => {
+    try {
     //in post requests when information is required from the post request body, we do not have access to it 
     //right away,,,its undefined if access,,, use express middle wares to deal with this....
     //app.use(express.urlendcoded({extended:true}))
     const newProduct = new Product(req.body);
     await newProduct.save();
-    console.log(newProduct);
+    // console.log(newProduct);
     //redirecting to the show page for each product
     // res.send("making your product");
     res.redirect(`/products/${ newProduct._id }`)
+    } catch (e) {
+        next(e);
+    }
 })
 app.get("/products/:id", async (req, res,next) => {
     const { id } = req.params;
@@ -82,11 +90,15 @@ app.get("/products/:id/edit", async (req, res,next) => {
     }
     res.render("products/edit", { product, categories });
 })
-app.put("/products/:id", async (req,res) => {
+app.put("/products/:id", async (req,res,next) => {
+    try {
     // console.log(req.body);
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new:true});
     res.redirect(`/products/${product._id}`);
+    } catch (e) {
+        next(e);
+    }
 })
 app.delete("/products/:id", async (req,res) => {
     const { id } = req.params;
