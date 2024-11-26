@@ -34,7 +34,6 @@ const categories = ["fruit","vegetable","dairy"];
 //================================ROUTES=======================================================
 //adding a basic route
 app.get("/products", async (req,res,next) => {
-    try {
     const { category } = req.query;
     if(category){
         const products = await Product.find({ category });
@@ -44,9 +43,6 @@ app.get("/products", async (req,res,next) => {
         // console.log(products);
         res.render("products/index", { products, category });
         }
-    } catch(e) {
-        next(e);
-    }
 })
 //creating the new product route..........................
 app.get("/products/new", (req,res) => {
@@ -57,8 +53,7 @@ app.get("/products/new", (req,res) => {
 
 
 //route for submission of the form i.e is to the /products
-app.post("/products", async(req,res,next) => {
-    try {
+app.post("/products", wrapAsync(async(req,res,next) => {
     //in post requests when information is required from the post request body, we do not have access to it 
     //right away,,,its undefined if access,,, use express middle wares to deal with this....
     //app.use(express.urlendcoded({extended:true}))
@@ -68,11 +63,15 @@ app.post("/products", async(req,res,next) => {
     //redirecting to the show page for each product
     // res.send("making your product");
     res.redirect(`/products/${ newProduct._id }`)
-    } catch (e) {
-        next(e);
+}))
+
+function wrapAsync(fn){
+    return function(req,res,next){
+        fn(req,res,next).catch(e => next(e));
     }
-})
-app.get("/products/:id", async (req, res,next) => {
+}
+
+app.get("/products/:id", wrapAsync(async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id);
     if(!product){
@@ -81,25 +80,25 @@ app.get("/products/:id", async (req, res,next) => {
     // console.log(product);
     // res.send("Details Page");
     res.render("products/show", { product });
-})
-app.get("/products/:id/edit", async (req, res,next) => {
+}))
+
+
+app.get("/products/:id/edit", wrapAsync(async (req, res,next) => {
     const { id } = req.params;
     const product = await Product.findById(id)
     if(!product){
         throw next(new AppError("Product Not Found",404));
     }
     res.render("products/edit", { product, categories });
-})
-app.put("/products/:id", async (req,res,next) => {
-    try {
+}))
+
+
+app.put("/products/:id",wrapAsync(async (req,res,next) => {
     // console.log(req.body);
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new:true});
     res.redirect(`/products/${product._id}`);
-    } catch (e) {
-        next(e);
-    }
-})
+}))
 app.delete("/products/:id", async (req,res) => {
     const { id } = req.params;
     const deletedProduct  = await Product.findByIdAndDelete(id);
