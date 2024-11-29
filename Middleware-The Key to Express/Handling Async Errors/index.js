@@ -106,6 +106,18 @@ app.delete("/products/:id", async (req,res) => {
 })
 //================================ROUTES=======================================================
 
+const handleValidationErr = err => {
+    console.dir(err);
+    return(err);
+}
+
+
+app.use((err,req,res,next) =>{
+    console.log(err.name);
+    if(err.name === "ValidationError") err = handleValidationErr(err);
+    next(err);
+})
+
 //================================Error Handling Middlewares=======================================================
 app.use((err,req,res,next) => {
     const { status = 500, message = "Something Went Wrong"} = err;
