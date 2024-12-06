@@ -56,4 +56,8 @@ const addProduct = async () => {
 
 // makeFarm();
 
-addProduct();
+// addProduct();
+
+Farm.findOne({name:"Full Belly Farms"})
+.populate("products")  //the ref passed to the products in the schema is now refered here
+.then( farm => console.log(farm));
