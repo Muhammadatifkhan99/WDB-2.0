@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {Schema } = mongoose;
 
 //no need to connect to the database because this file wil be required in the index.js file which already 
 //have a connection to the database..................
@@ -19,6 +20,10 @@ const productSchema = new mongoose.Schema ({
         type: String,
         lowercase: true,
         enum: ["fruit", "vegetable","dairy"]
+    },
+    farm: {
+        type: Schema.Types.ObjectId,
+        ref: "Farm"
     }
 });
 
