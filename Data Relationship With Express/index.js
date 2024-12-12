@@ -3,10 +3,11 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const methodoverride = require("method-override");
+const Farm = require("./models/farms");
 
 const Product = require("./models/product");
 
-mongoose.connect("mongodb://localhost:27017/farmStand")
+mongoose.connect("mongodb://localhost:27017/farmStandTake2")
     .then(() => {
         console.log("CONNECTION OPEN");
         //we donot need to nest our code here becasue mongoose do operation buffering allowing us to use
@@ -31,6 +32,34 @@ app.use(methodoverride("_method"));
 const categories = ["fruit","vegetable","dairy"];
 
 //================================ROUTES=======================================================
+
+//FARM ROUTES
+
+app.get("/farms", async(req,res) => {
+    const farms = await Farm.find({});
+    res.render("farms/index",{ farms })
+})
+
+app.get("/farms/new", (req,res) => {
+    res.render("farms/new");
+})
+
+app.post("/farms", async (req,res) => {
+    const farm = new Farm(req.body);
+    await farm.save();
+    res.redirect("/farms")
+})
+
+
+
+
+
+
+
+
+
+
+//PRODUCT ROUTES
 //adding a basic route
 app.get("/products", async (req,res) => {
     const { category } = req.query;

@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 
 
-const farmSchem = new mongoose.Schema({
+const farmSchema = new mongoose.Schema({
     name: {
         type: String,
         require: [true, "Farm must have a name"]
@@ -22,6 +22,14 @@ const farmSchem = new mongoose.Schema({
         }
     ]
 })
+
+//compile the model 
+const Farm = mongoose.model("Farm", farmSchema);
+
+
+///export the module
+
+module.exports = Farm;
 
 
 
