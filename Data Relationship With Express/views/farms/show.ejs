@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Farms</title>
+    <title><%= farms.name %></title>
 </head>
 
 <body>
-    <h1>All Farms</h1>
+    <h1><%= farms.name %></h1>
     <ul>
-        <% for(let farm of farms) {%>
-        <li><a href="/farms/<%=farm._id%>"><%= farm.name %></a></li>
-        <% } %>
+        <li>City<%= farms.city%></li>
+        <li>Email: <%= farms.email%></li>
     </ul>
+    <a href="/farms">All Farms</a>
+
+
 </body>
+
 </html>

@@ -44,6 +44,11 @@ app.get("/farms/new", (req,res) => {
     res.render("farms/new");
 })
 
+app.get("/farms/:id", async(req,res) => {
+    const farms = await Farm.findById(req.params.id);
+    res.render("farms/show", { farms });
+})
+
 app.post("/farms", async (req,res) => {
     const farm = new Farm(req.body);
     await farm.save();
