@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const bcrypt = require("bcrypt");
+const { findOne } = require("./models/user");
 
 
 
@@ -43,6 +44,23 @@ app.post("/register", async (req,res) => {
     // res.send(req.body);
 })
 
+
+app.get("/login",(req,res) => {
+    res.render("login");
+})
+
+app.post("/login", async (req,res) => {
+    const { username , password } = req.body;
+    const user = await User.findOne({ username });
+    const validuser = await bcrypt.compare(password, user.password);
+    if(validuser){
+        res.send("Welcome");
+    } 
+    else {
+        res.send("TRY AGAIN");
+    }
+
+});
 
 app.get("/secret", (req,res) => {
     res.send("This is a secrete! You cannot see me unless you are loggedIn");
