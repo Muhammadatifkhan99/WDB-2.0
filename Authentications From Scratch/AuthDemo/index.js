@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const bcrypt = require("bcrypt");
+const sessions = require("express-session");
+
+
 const { findOne } = require("./models/user");
 
 
@@ -22,6 +25,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.urlencoded({extended:true}))
+app.use(sessions({ secret: "notagoodsecrete" }));
 
 app.get("/",(req,res) => {
     res.send("This is the home page");
@@ -40,6 +44,7 @@ app.post("/register", async (req,res) => {
         password: hash
     })
     await user.save();
+    req.session.user_id = user._id;
     res.redirect("/")
     // res.send(req.body);
 })
@@ -54,7 +59,8 @@ app.post("/login", async (req,res) => {
     const user = await User.findOne({ username });
     const validuser = await bcrypt.compare(password, user.password);
     if(validuser){
-        res.send("Welcome");
+        req.session.user_id = user._id;
+        res.redirect("/secret");
     } 
     else {
         res.send("TRY AGAIN");
@@ -63,7 +69,10 @@ app.post("/login", async (req,res) => {
 });
 
 app.get("/secret", (req,res) => {
-    res.send("This is a secrete! You cannot see me unless you are loggedIn");
+    if(!req.session.user_id){
+        res.redirect("/login");
+    }
+    res.send("This is a secrete! You cannot see me unless you are logged In to the session");
 })
 
 
