@@ -60,7 +60,7 @@ app.post("/login", async (req,res) => {
     const validuser = await bcrypt.compare(password, user.password);
     if(validuser){
         req.session.user_id = user._id;
-        res.redirect("/secret");
+        res.render("secret");
     } 
     else {
         res.send("TRY AGAIN");
@@ -68,11 +68,16 @@ app.post("/login", async (req,res) => {
 
 });
 
+app.post("/logout", (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
+})
+
 app.get("/secret", (req,res) => {
     if(!req.session.user_id){
-        res.redirect("/login");
+        return res.redirect("/login");
     }
-    res.send("This is a secrete! You cannot see me unless you are logged In to the session");
+    res.render('secret');
 })
 
 
