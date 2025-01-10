@@ -64,14 +64,13 @@ app.get("/login",(req,res) => {
 
 app.post("/login", async (req,res) => {
     const { username , password } = req.body;
-    const user = await User.findOne({ username });
-    const validuser = await bcrypt.compare(password, user.password);
-    if(validuser){
-        req.session.user_id = user._id;
-        res.render("secret");
+    const foundUser = await User.findAndValidate(username,password);
+    if(foundUser){
+        req.session.user_id = foundUser;
+        res.redirect("secret");
     } 
     else {
-        res.send("TRY AGAIN");
+        res.redirect("/login");
     }
 
 });
